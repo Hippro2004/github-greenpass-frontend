@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center text-center pt-[12vh]">
@@ -32,5 +33,6 @@ export default function Home() {
         </Link>
       </div>
     </div>
+
   );
 }
