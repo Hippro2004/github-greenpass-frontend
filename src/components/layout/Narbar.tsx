@@ -21,6 +21,13 @@ export default function Navbar() {
                     </Link>
 
                     <Link
+                        href="/park"
+                        className="text-sm font-medium text-[#6F756B] transition-colors hover:text-[#5F7F58]"
+                    >
+                        อุทยานแห่งชาติ
+                    </Link>
+
+                    <Link
                         href="/reward"
                         className="text-sm font-medium text-[#6F756B] transition-colors hover:text-[#5F7F58]"
                     >
