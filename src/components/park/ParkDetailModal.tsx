@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useEffect } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Park } from "../../types/park";
 import { extractProvince, formatTime, isCurrentlyOpen } from "./ParkCard";
+import AppPromoModal from "../common/AppPromoModal";
 
 interface ParkDetailModalProps {
   park: Park | null;
@@ -12,6 +12,7 @@ interface ParkDetailModalProps {
 }
 
 export default function ParkDetailModal({ park, onClose }: ParkDetailModalProps) {
+  const [showAppPromo, setShowAppPromo] = useState(false);
   // กด ESC เพื่อปิด Modal
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -175,15 +176,19 @@ export default function ParkDetailModal({ park, onClose }: ParkDetailModalProps)
 
         {/* Modal Footer */}
         <div className="border-t border-[#E3EBDD] bg-[#FAFDF8] px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <Link
-            href="/stamp"
-            className="flex items-center gap-2 text-xs font-semibold text-[#5F7F58] hover:text-[#3F6848] transition-colors"
+          <button
+            type="button"
+            onClick={() => setShowAppPromo(true)}
+            className="flex items-center gap-2 text-xs font-semibold text-[#5F7F58] hover:text-[#3F6848] transition-colors text-left cursor-pointer"
           >
-            <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#E8F3E5]">
-              🍃
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#E8F3E5] text-base">
+              📱
             </span>
-            <span>เช็คอินสะสมแสตมป์อุทยานนี้</span>
-          </Link>
+            <div>
+              <span className="block font-bold text-[#3F6848]">เช็คอินสะสมแสตมป์อุทยานนี้</span>
+              <span className="text-[10px] text-[#8A9488]">ใช้งานผ่าน GreenPass Mobile App</span>
+            </div>
+          </button>
 
           <div className="flex items-center gap-2.5 w-full sm:w-auto">
             {park.location && (
@@ -210,6 +215,9 @@ export default function ParkDetailModal({ park, onClose }: ParkDetailModalProps)
           </div>
         </div>
       </div>
+
+      {/* Mobile App Promotion Modal */}
+      <AppPromoModal isOpen={showAppPromo} onClose={() => setShowAppPromo(false)} />
     </div>
   );
 }

@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Reward } from "../../types/reward";
 import { formatRewardDate, resolveRewardImage } from "./RewardCard";
+import AppPromoModal from "../common/AppPromoModal";
 
 interface RewardDetailModalProps {
   reward: Reward | null;
@@ -12,6 +13,7 @@ interface RewardDetailModalProps {
 }
 
 export default function RewardDetailModal({ reward, onClose }: RewardDetailModalProps) {
+  const [showAppPromo, setShowAppPromo] = useState(false);
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -117,9 +119,9 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
                 <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#E8F3E5] text-[#3F6848] font-bold text-xs mb-2">
                   2
                 </div>
-                <h5 className="text-xs font-bold text-[#3F6848] mb-1">สะสมแสตมป์</h5>
+                <h5 className="text-xs font-bold text-[#3F6848] mb-1">สะสมแสตมป์บนแอป</h5>
                 <p className="text-xs text-[#6F756B] leading-relaxed">
-                  สแกนหรือบันทึกเช็คอินแสตมป์ออนไลน์ผ่าน GreenPass
+                  สแกนเช็คอินผ่าน GreenPass Mobile App บนมือถือ
                 </p>
               </div>
 
@@ -147,15 +149,13 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
           </Link>
 
           <div className="flex items-center gap-2.5 w-full sm:w-auto">
-            <Link
-              href="/stamp"
-              className="flex flex-1 sm:flex-initial items-center justify-center gap-2 rounded-xl bg-[#6B8E62] px-5 py-2.5 text-xs font-semibold text-white shadow-xs transition-all hover:bg-[#5F7F58]"
+            <button
+              type="button"
+              onClick={() => setShowAppPromo(true)}
+              className="flex flex-1 sm:flex-initial items-center justify-center gap-2 rounded-xl bg-[#6B8E62] px-5 py-2.5 text-xs font-semibold text-white shadow-xs transition-all hover:bg-[#5F7F58] cursor-pointer"
             >
-              <span>ดูแสตมป์ของฉัน</span>
-              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </Link>
+              <span>📱 สะสมแสตมป์บนแอป</span>
+            </button>
 
             <button
               type="button"
@@ -167,6 +167,9 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
           </div>
         </div>
       </div>
+
+      {/* Mobile App Promotion Modal */}
+      <AppPromoModal isOpen={showAppPromo} onClose={() => setShowAppPromo(false)} />
     </div>
   );
 }

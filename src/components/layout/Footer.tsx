@@ -61,8 +61,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/stamp" className="hover:text-[#3F6848] transition-colors">
-                  ระบบสะสมแสตมป์ดิจิทัล
+                <Link href="/stamp" className="hover:text-[#3F6848] transition-colors flex items-center gap-1.5">
+                  <span>สะสมแสตมป์ดิจิทัล</span>
+                  <span className="rounded-full bg-[#6B8E62] text-white px-1.5 py-0.2 text-[9px] font-bold">
+                    Mobile App
+                  </span>
                 </Link>
               </li>
             </ul>

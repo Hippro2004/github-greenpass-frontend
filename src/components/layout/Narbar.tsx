@@ -3,10 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import AppPromoModal from "../common/AppPromoModal";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showAppPromo, setShowAppPromo] = useState(false);
 
   const navLinks = [
     { name: "หน้าแรก", href: "/" },
@@ -62,13 +64,17 @@ export default function Navbar() {
 
         {/* Right CTA Button */}
         <div className="hidden sm:flex items-center gap-3">
-          <Link
-            href="/stamp"
-            className="flex items-center gap-1.5 rounded-full bg-[#E8F3E5] border border-[#D5E2CE] px-5 py-2 text-xs font-bold text-[#3F6848] shadow-2xs transition-all hover:bg-[#6B8E62] hover:text-white hover:border-[#6B8E62]"
+          <button
+            type="button"
+            onClick={() => setShowAppPromo(true)}
+            className="flex items-center gap-1.5 rounded-full bg-[#E8F3E5] border border-[#D5E2CE] px-4 py-2 text-xs font-bold text-[#3F6848] shadow-2xs transition-all hover:bg-[#6B8E62] hover:text-white hover:border-[#6B8E62] cursor-pointer"
           >
             <span>📱</span>
-            <span>เช็คอินแสตมป์</span>
-          </Link>
+            <span>เช็คอินบนแอป</span>
+            <span className="rounded-full bg-[#6B8E62] text-white px-1.5 py-0.2 text-[9px] font-medium group-hover:bg-white group-hover:text-[#3F6848]">
+              App
+            </span>
+          </button>
         </div>
 
         {/* Mobile Hamburger Toggle Button */}
@@ -114,18 +120,24 @@ export default function Navbar() {
             })}
 
             <div className="pt-3 mt-2 border-t border-[#F0F5ED]">
-              <Link
-                href="/stamp"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 w-full rounded-xl bg-[#6B8E62] py-3 text-center text-sm font-bold text-white shadow-xs"
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setShowAppPromo(true);
+                }}
+                className="flex items-center justify-center gap-2 w-full rounded-xl bg-[#6B8E62] py-3 text-center text-sm font-bold text-white shadow-xs cursor-pointer"
               >
                 <span>📱</span>
-                <span>เช็คอินสะสมแสตมป์</span>
-              </Link>
+                <span>เช็คอินสะสมแสตมป์บนแอป</span>
+              </button>
             </div>
           </div>
         </div>
       )}
+
+      {/* App Promotion Modal */}
+      <AppPromoModal isOpen={showAppPromo} onClose={() => setShowAppPromo(false)} />
     </header>
   );
 }
