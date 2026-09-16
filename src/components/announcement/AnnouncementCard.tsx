@@ -8,7 +8,6 @@ interface AnnouncementCardProps {
   onSelect: (announcement: Announcement) => void;
 }
 
-// แปลงวันที่เป็นฟอร์แมตภาษาไทย
 export function formatThaiDate(dateStr?: string): string {
   if (!dateStr) return "";
   try {
@@ -20,14 +19,13 @@ export function formatThaiDate(dateStr?: string): string {
     ];
     const day = d.getDate();
     const month = months[d.getMonth()];
-    const year = d.getFullYear() + 543; // พ.ศ.
+    const year = d.getFullYear() + 543;
     return `${day} ${month} ${year}`;
   } catch {
     return dateStr;
   }
 }
 
-// ตรวจสอบระดับความสำคัญและประเภทของประกาศ
 export function getAnnouncementMeta(announcement: Announcement): {
   type: "urgent" | "closure" | "general";
   label: string;
@@ -55,7 +53,6 @@ export function getAnnouncementMeta(announcement: Announcement): {
   };
 }
 
-// รูปภาพธรรมชาติสำรองตาม ID เพื่อความสวยงามไม่ซ้ำกัน
 export function resolveAnnouncementImage(imageUrl?: string, id: number = 0): string {
   if (imageUrl && (imageUrl.startsWith("http://") || imageUrl.startsWith("https://"))) {
     return imageUrl;
@@ -80,7 +77,6 @@ export default function AnnouncementCard({ announcement, onSelect }: Announcemen
       onClick={() => onSelect(announcement)}
       className="group flex flex-col overflow-hidden rounded-2xl border border-[#E3EBDD] bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#6B8E62]/40 hover:shadow-lg hover:shadow-[#6B8E62]/10 cursor-pointer"
     >
-      {/* Cover Image */}
       <div className="relative h-48 w-full overflow-hidden bg-[#EEF4EB]">
         <img
           src={imageUrl}
@@ -93,10 +89,8 @@ export default function AnnouncementCard({ announcement, onSelect }: Announcemen
           }}
         />
 
-        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/25" />
 
-        {/* Badge ประเภทประกาศ (มุมซ้ายบน) */}
         <div className="absolute top-3 left-3">
           <span className={`inline-flex items-center gap-1.5 rounded-full backdrop-blur-md px-3 py-1 text-xs font-semibold shadow-xs ${meta.badgeClass}`}>
             {meta.type === "urgent" && <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />}
@@ -104,12 +98,10 @@ export default function AnnouncementCard({ announcement, onSelect }: Announcemen
           </span>
         </div>
 
-        {/* Badge วันที่ (มุมขวาบน) */}
         <div className="absolute top-3 right-3 rounded-full bg-white/90 backdrop-blur-md px-2.5 py-1 text-xs font-medium text-[#3F6848] shadow-xs">
           {formattedDate}
         </div>
 
-        {/* อุทยานที่เกี่ยวข้อง (มุมล่างซ้าย) */}
         <div className="absolute bottom-3 left-3 right-3 flex items-center gap-1.5 text-xs text-white/95 drop-shadow-sm font-medium">
           <svg className="h-4 w-4 shrink-0 text-emerald-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -119,7 +111,6 @@ export default function AnnouncementCard({ announcement, onSelect }: Announcemen
         </div>
       </div>
 
-      {/* Card Content */}
       <div className="flex flex-1 flex-col justify-between p-5">
         <div>
           <h3 className="text-base font-bold text-[#3F6848] line-clamp-2 leading-snug mb-2 group-hover:text-[#5F7F58] transition-colors">
@@ -131,7 +122,6 @@ export default function AnnouncementCard({ announcement, onSelect }: Announcemen
           </p>
         </div>
 
-        {/* Card Action */}
         <div className="pt-2 border-t border-[#F0F5ED] flex items-center justify-between">
           <span className="text-xs text-[#8A9488]">
             รหัสประกาศ #{announcement.announcementId}

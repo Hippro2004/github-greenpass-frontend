@@ -1,7 +1,6 @@
 import { Park } from "../types/park";
 import { API_BASE_URL } from "./api";
 
-// Fallback mock data matching the real database in case backend is offline
 const MOCK_PARKS: Park[] = [
   {
     id: 1,
@@ -90,9 +89,6 @@ const MOCK_PARKS: Park[] = [
   }
 ];
 
-/**
- * ค้นหาอุทยานแห่งชาติตามคำค้นหา
- */
 export async function searchParks(keyword: string = ""): Promise<{ parks: Park[]; isFallback: boolean }> {
   try {
     const encoded = encodeURIComponent(keyword.trim());
@@ -105,7 +101,6 @@ export async function searchParks(keyword: string = ""): Promise<{ parks: Park[]
     }
 
     const data = await res.json();
-    // รับข้อมูล DTO ตรง ๆ (และรองรับ .result เผื่อช่วงเปลี่ยนผ่าน)
     const parks: Park[] = Array.isArray(data)
       ? data
       : (data as { result?: Park[] })?.result || [];
@@ -116,7 +111,6 @@ export async function searchParks(keyword: string = ""): Promise<{ parks: Park[]
     };
   } catch (err) {
     console.warn("Could not reach backend park search API, using fallback data:", err);
-    // Client-side search filtering on fallback
     const q = keyword.trim().toLowerCase();
     const filtered = q
       ? MOCK_PARKS.filter(
@@ -134,9 +128,6 @@ export async function searchParks(keyword: string = ""): Promise<{ parks: Park[]
   }
 }
 
-/**
- * ดึงข้อมูลอุทยานแห่งชาติตาม ID
- */
 export async function getParkById(parkId: number): Promise<Park | null> {
   try {
     const res = await fetch(`${API_BASE_URL}park/get?parkId=${parkId}`, {

@@ -58,31 +58,25 @@ export default function Home() {
 
   return (
     <div className="mx-auto max-w-7xl pb-20">
-      {/* Hero Section */}
       <section className="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24 text-center">
-        {/* Glow ambient background */}
         <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[350px] w-[600px] rounded-full bg-[#6B8E62]/10 blur-3xl" />
 
         <div className="relative z-10 flex flex-col items-center">
-          {/* Badge */}
           <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#E8F3E5] px-4 py-2 text-xs md:text-sm font-semibold text-[#3F6848] shadow-2xs">
             <span className="h-2 w-2 rounded-full bg-[#6B8E62] animate-pulse" />
             <span>GreenPass • แพลตฟอร์มอุทยานแห่งชาติดิจิทัลแห่งแรกของไทย</span>
           </div>
 
-          {/* Heading */}
           <h1 className="mb-6 max-w-4xl text-4xl font-extrabold tracking-tight text-[#3F6848] sm:text-6xl md:text-7xl leading-[1.15]">
             Explore the Nature. <br />
             <span className="text-[#6B8E62]">Preserve the Wonder.</span>
           </h1>
 
-          {/* Description */}
           <p className="mx-auto mb-10 max-w-2xl text-base sm:text-lg leading-relaxed text-[#6F756B]">
             ออกเดินทางสำรวจอุทยานแห่งชาติทั่วประเทศไทย เช็คสถานะเวลาเปิด-ปิดแบบเรียลไทม์
             ติดตามประกาศด่วนสภาพอากาศ และสะสมแสตมป์เพื่อแลกของที่ระลึกสุดเอ็กซ์คลูซีฟ
           </p>
 
-          {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none">
             <Link
               href="/park"
@@ -106,7 +100,6 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Quick Metrics Bar */}
           <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-8 max-w-3xl w-full border-t border-[#E3EBDD] pt-8 text-center">
             <div>
               <p className="text-2xl sm:text-3xl font-extrabold text-[#3F6848]">155+</p>
@@ -124,7 +117,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Feature Pillar Cards */}
       <section className="mb-20">
         <div className="mb-10 text-center">
           <span className="text-xs font-bold uppercase tracking-wider text-[#6B8E62]">SERVICES & HIGHLIGHTS</span>
@@ -134,7 +126,6 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Card 1 */}
           <Link
             href="/park"
             className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#E3EBDD] bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#6B8E62]/40 hover:shadow-xl hover:shadow-[#6B8E62]/10"
@@ -163,7 +154,6 @@ export default function Home() {
             </div>
           </Link>
 
-          {/* Card 2 */}
           <Link
             href="/announcement"
             className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#E3EBDD] bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#6B8E62]/40 hover:shadow-xl hover:shadow-[#6B8E62]/10"
@@ -192,7 +182,6 @@ export default function Home() {
             </div>
           </Link>
 
-          {/* Card 3 */}
           <Link
             href="/reward"
             className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#E3EBDD] bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#6B8E62]/40 hover:shadow-xl hover:shadow-[#6B8E62]/10"
@@ -223,7 +212,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured National Parks */}
       <section className="mb-20">
         <div className="mb-8 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
           <div>
@@ -273,7 +261,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4 Easy Steps Guide */}
       <section className="mb-20 rounded-3xl border border-[#E3EBDD] bg-[#F6FAF4] p-8 md:p-12">
         <div className="mb-10 text-center max-w-xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-wider text-[#6B8E62]">HOW IT WORKS</span>
@@ -305,7 +292,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Call To Action Banner */}
       <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#3F6848] via-[#2F5237] to-[#1E3623] p-10 md:p-16 text-center text-white shadow-xl">
         <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
           <span className="text-3xl mb-3">🍃</span>

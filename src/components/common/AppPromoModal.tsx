@@ -23,19 +23,15 @@ export default function AppPromoModal({ isOpen, onClose }: AppPromoModalProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 animate-fade-in">
-      {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/65 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       />
 
-      {/* Modal Dialog */}
       <div className="relative z-10 flex max-h-[90vh] w-full max-w-xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl border border-[#E3EBDD]">
-        {/* Header with nature gradient */}
         <div className="relative overflow-hidden bg-gradient-to-br from-[#3F6848] via-[#2F5237] to-[#1E3623] p-6 sm:p-8 text-white">
           <div className="pointer-events-none absolute -right-10 -bottom-10 h-44 w-44 rounded-full bg-white/10 blur-2xl" />
 
-          {/* Close button */}
           <button
             type="button"
             onClick={onClose}
@@ -47,7 +43,6 @@ export default function AppPromoModal({ isOpen, onClose }: AppPromoModalProps) {
             </svg>
           </button>
 
-          {/* Tag */}
           <div className="mb-3 inline-flex items-center gap-1.5 rounded-full bg-white/15 backdrop-blur-md px-3 py-1 text-xs font-semibold text-emerald-200">
             <span>📱</span>
             <span>GreenPass Mobile Application</span>
@@ -62,9 +57,7 @@ export default function AppPromoModal({ isOpen, onClose }: AppPromoModalProps) {
           </p>
         </div>
 
-        {/* Body content */}
         <div className="flex-1 overflow-y-auto p-6 sm:p-8 space-y-6">
-          {/* Mobile Highlights */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#3F6848]">
               ฟังก์ชันเฉพาะบนแอปพลิเคชันมือถือ
@@ -121,14 +114,12 @@ export default function AppPromoModal({ isOpen, onClose }: AppPromoModalProps) {
             </div>
           </div>
 
-          {/* Download Platforms Showcase */}
           <div className="rounded-2xl border border-[#D5E2CE] bg-white p-5 text-center">
             <h5 className="text-xs font-bold text-[#3F6848] mb-3">
               ดาวน์โหลด GreenPass Mobile App ได้ทั้งสองระบบ
             </h5>
 
             <div className="flex flex-wrap items-center justify-center gap-3">
-              {/* App Store */}
               <div className="flex items-center gap-3 rounded-xl border border-[#D5E2CE] bg-[#FAFDF8] px-4 py-2.5 text-left shadow-2xs hover:border-[#6B8E62] transition-colors cursor-pointer">
                 <span className="text-2xl">🍏</span>
                 <div>
@@ -137,7 +128,6 @@ export default function AppPromoModal({ isOpen, onClose }: AppPromoModalProps) {
                 </div>
               </div>
 
-              {/* Google Play */}
               <div className="flex items-center gap-3 rounded-xl border border-[#D5E2CE] bg-[#FAFDF8] px-4 py-2.5 text-left shadow-2xs hover:border-[#6B8E62] transition-colors cursor-pointer">
                 <span className="text-2xl">🤖</span>
                 <div>
@@ -153,7 +143,6 @@ export default function AppPromoModal({ isOpen, onClose }: AppPromoModalProps) {
           </div>
         </div>
 
-        {/* Footer */}
         <div className="border-t border-[#E3EBDD] bg-[#FAFDF8] px-6 py-4 flex items-center justify-between gap-3">
           <Link
             href="/stamp"

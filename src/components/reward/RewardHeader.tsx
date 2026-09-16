@@ -17,7 +17,6 @@ export default function RewardHeader({
 }: RewardHeaderProps) {
   return (
     <section className="mb-8 flex flex-col items-center">
-      {/* Badge หัวข้อ */}
       <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#E8F3E5] px-4 py-1.5 text-xs font-semibold text-[#5F7F58]">
         <span>🎁</span>
         <span>ของรางวัลและสิทธิพิเศษ • GreenPass Exclusive Rewards</span>
@@ -30,7 +29,6 @@ export default function RewardHeader({
         ออกเดินทางท่องเที่ยวอุทยานแห่งชาติ สะสมแสตมป์ดิจิทัลผ่าน GreenPass เพื่อแลกรับของที่ระลึกสุดเอ็กซ์คลูซีฟและสิทธิประโยชน์มากมาย
       </p>
 
-      {/* Fallback Banner */}
       {isFallback && (
         <div className="mb-6 flex items-center gap-2 rounded-2xl bg-amber-50 px-4 py-2 text-xs text-amber-800 border border-amber-200">
           <svg className="h-4 w-4 text-amber-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -40,7 +38,6 @@ export default function RewardHeader({
         </div>
       )}
 
-      {/* Search Input Box */}
       <div className="w-full max-w-2xl">
         <div className="relative flex items-center">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4.5 text-[#6B8E62]">
@@ -71,7 +68,6 @@ export default function RewardHeader({
           )}
         </div>
 
-        {/* Results summary bar */}
         <div className="mt-4 flex items-center justify-between px-1 text-xs text-[#8A9488]">
           <span>
             พบของรางวัลทั้งหมด <strong className="text-[#3F6848] font-bold">{totalResults}</strong> รายการ

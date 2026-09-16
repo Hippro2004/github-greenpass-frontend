@@ -1,7 +1,6 @@
 import { Reward } from "../types/reward";
 import { API_BASE_URL } from "./api";
 
-// Fallback mock rewards in case backend is offline
 const MOCK_REWARDS: Reward[] = [
   {
     rewardId: 4,
@@ -33,9 +32,6 @@ const MOCK_REWARDS: Reward[] = [
   }
 ];
 
-/**
- * ดึงรายการของรางวัลทั้งหมด
- */
 export async function getAllRewards(): Promise<{ rewards: Reward[]; isFallback: boolean }> {
   try {
     const res = await fetch(`${API_BASE_URL}reward/reward-all`, {
@@ -64,9 +60,6 @@ export async function getAllRewards(): Promise<{ rewards: Reward[]; isFallback: 
   }
 }
 
-/**
- * ดึงรายละเอียดของรางวัลตาม ID
- */
 export async function getRewardById(rewardId: number): Promise<Reward | null> {
   try {
     const res = await fetch(`${API_BASE_URL}reward/${rewardId}`, {

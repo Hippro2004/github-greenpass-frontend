@@ -13,15 +13,12 @@ export default function AnnouncementPage() {
   const [error, setError] = useState<string | null>(null);
   const [isFallback, setIsFallback] = useState<boolean>(false);
 
-  // Filters
   const [keyword, setKeyword] = useState<string>("");
   const [category, setCategory] = useState<AnnouncementCategory>("all");
   const [parkFilter, setParkFilter] = useState<string>("all");
 
-  // Selected item for modal
   const [selectedAnnouncement, setSelectedAnnouncement] = useState<Announcement | null>(null);
 
-  // Fetch announcements
   const fetchAnnouncements = () => {
     setLoading(true);
     setError(null);
@@ -63,7 +60,6 @@ export default function AnnouncementPage() {
     };
   }, []);
 
-  // List of parks with announcements
   const availableParks = useMemo(() => {
     const set = new Set<string>();
     announcements.forEach((a) => {
@@ -72,22 +68,18 @@ export default function AnnouncementPage() {
     return Array.from(set).sort();
   }, [announcements]);
 
-  // Filtered announcements
   const filteredAnnouncements = useMemo(() => {
     const q = keyword.trim().toLowerCase();
     return announcements.filter((item) => {
-      // Park filter
       if (parkFilter !== "all" && item.parkName !== parkFilter) {
         return false;
       }
 
-      // Category filter
       if (category !== "all") {
         const meta = getAnnouncementMeta(item);
         if (meta.type !== category) return false;
       }
 
-      // Keyword filter
       if (q) {
         const titleMatch = item.announcementTitle?.toLowerCase().includes(q);
         const descMatch = item.description?.toLowerCase().includes(q);
@@ -99,7 +91,6 @@ export default function AnnouncementPage() {
     });
   }, [announcements, keyword, category, parkFilter]);
 
-  // Latest urgent announcement for pinned alert banner
   const latestUrgent = useMemo(() => {
     return announcements.find((a) => getAnnouncementMeta(a).type === "urgent");
   }, [announcements]);
@@ -112,7 +103,6 @@ export default function AnnouncementPage() {
 
   return (
     <div className="mx-auto max-w-7xl pb-16">
-      {/* Header with Search and Filters */}
       <AnnouncementHeader
         keyword={keyword}
         onKeywordChange={setKeyword}
@@ -126,7 +116,6 @@ export default function AnnouncementPage() {
         isFallback={isFallback}
       />
 
-      {/* Pinned Urgent Alert Banner (if exists and not specifically filtered out) */}
       {!loading && !error && latestUrgent && category === "all" && !keyword && (
         <div
           onClick={() => setSelectedAnnouncement(latestUrgent)}
@@ -167,9 +156,7 @@ export default function AnnouncementPage() {
         </div>
       )}
 
-      {/* Main Grid Content */}
       {loading ? (
-        // Loading Skeleton Grid
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[1, 2, 3, 4, 5, 6].map((idx) => (
             <div
@@ -187,7 +174,6 @@ export default function AnnouncementPage() {
           ))}
         </div>
       ) : error ? (
-        // Error State
         <div className="my-12 flex flex-col items-center justify-center rounded-3xl border border-rose-200 bg-rose-50/50 p-10 text-center">
           <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-rose-100 text-rose-600">
             <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -209,7 +195,6 @@ export default function AnnouncementPage() {
           </button>
         </div>
       ) : filteredAnnouncements.length === 0 ? (
-        // Empty State
         <div className="my-12 flex flex-col items-center justify-center rounded-3xl border border-dashed border-[#D5E2CE] bg-white/70 p-12 text-center">
           <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#E8F3E5] text-[#5F7F58] text-2xl">
             📰
@@ -232,7 +217,6 @@ export default function AnnouncementPage() {
           </button>
         </div>
       ) : (
-        // Cards Grid
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredAnnouncements.map((item) => (
             <AnnouncementCard
@@ -244,7 +228,6 @@ export default function AnnouncementPage() {
         </div>
       )}
 
-      {/* Detail Modal */}
       <AnnouncementDetailModal
         announcement={selectedAnnouncement}
         onClose={() => setSelectedAnnouncement(null)}

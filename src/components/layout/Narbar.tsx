@@ -26,7 +26,6 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-[#E3EBDD] bg-[#FAFDF8]/90 backdrop-blur-md transition-all">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
-        {/* Brand Logo */}
         <Link href="/" className="group flex items-center gap-2.5">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#E8F3E5] text-[#3F6848] transition-transform duration-300 group-hover:scale-105 shadow-2xs">
             <span className="text-lg">🍃</span>
@@ -42,7 +41,6 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-1.5 rounded-full border border-[#E3EBDD] bg-white/70 px-3 py-1.5 shadow-2xs">
           {navLinks.map((link) => {
             const active = isActive(link.href);
@@ -62,7 +60,6 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Right CTA Button */}
         <div className="hidden sm:flex items-center gap-3">
           <button
             type="button"
@@ -77,7 +74,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Hamburger Toggle Button */}
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -96,7 +92,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
         <div className="lg:hidden border-b border-[#E3EBDD] bg-white px-6 py-5 shadow-lg animate-fade-in">
           <div className="flex flex-col gap-2">
@@ -136,7 +131,6 @@ export default function Navbar() {
         </div>
       )}
 
-      {/* App Promotion Modal */}
       <AppPromoModal isOpen={showAppPromo} onClose={() => setShowAppPromo(false)} />
     </header>
   );

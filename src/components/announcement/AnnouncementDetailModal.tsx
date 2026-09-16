@@ -38,15 +38,12 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 animate-fade-in">
-      {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       />
 
-      {/* Modal Dialog */}
       <div className="relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl border border-[#E3EBDD]">
-        {/* Cover Header Image */}
         <div className="relative h-60 sm:h-68 w-full shrink-0 bg-[#3F6848]">
           <img
             src={imageUrl}
@@ -59,7 +56,6 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
 
-          {/* Close button */}
           <button
             type="button"
             onClick={onClose}
@@ -71,7 +67,6 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
             </svg>
           </button>
 
-          {/* Badges on image */}
           <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2">
             <span className={`inline-flex items-center gap-1.5 rounded-full backdrop-blur-md px-3 py-1 text-xs font-semibold shadow-md ${meta.badgeClass}`}>
               {meta.type === "urgent" && <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />}
@@ -83,7 +78,6 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
             </span>
           </div>
 
-          {/* Park Name on image */}
           <div className="absolute bottom-4 left-6 right-6 text-white">
             <div className="flex items-center gap-1.5 text-xs text-emerald-300 font-medium mb-1">
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -98,9 +92,7 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
           </div>
         </div>
 
-        {/* Modal Body */}
         <div className="flex-1 overflow-y-auto p-6 sm:p-8 space-y-6">
-          {/* Metadata Card */}
           <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-[#F6FAF4] p-4 border border-[#E8F3E5]">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#E8F3E5] text-[#3F6848]">
@@ -119,7 +111,6 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
             </span>
           </div>
 
-          {/* Full Content */}
           <div>
             <h4 className="text-base font-bold text-[#3F6848] mb-3">
               เนื้อหาประกาศ
@@ -129,7 +120,6 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
             </div>
           </div>
 
-          {/* Advice / Notice */}
           <div className="rounded-2xl bg-amber-50/70 p-4 border border-amber-200/80 text-amber-900 text-xs sm:text-sm">
             <p className="font-semibold mb-1 flex items-center gap-1.5">
               <span>⚠️</span> คำแนะนำสำหรับนักท่องเที่ยว
@@ -140,7 +130,6 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
           </div>
         </div>
 
-        {/* Modal Footer */}
         <div className="border-t border-[#E3EBDD] bg-[#FAFDF8] px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <button
             type="button"

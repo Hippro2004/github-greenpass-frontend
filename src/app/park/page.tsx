@@ -13,15 +13,12 @@ export default function ParkSearchPage() {
   const [error, setError] = useState<string | null>(null);
   const [isFallback, setIsFallback] = useState<boolean>(false);
 
-  // Filters
   const [keyword, setKeyword] = useState<string>("");
   const [statusFilter, setStatusFilter] = useState<"all" | "open" | "seasonal" | "closed">("all");
   const [provinceFilter, setProvinceFilter] = useState<string>("all");
 
-  // Selected park for modal
   const [selectedPark, setSelectedPark] = useState<Park | null>(null);
 
-  // Fetch parks on search keyword change (with debounce)
   useEffect(() => {
     let isMounted = true;
     const timer = setTimeout(() => {
@@ -68,7 +65,6 @@ export default function ParkSearchPage() {
       });
   };
 
-  // List of available provinces
   const availableProvinces = useMemo(() => {
     const set = new Set<string>();
     parks.forEach((p) => {
@@ -80,16 +76,13 @@ export default function ParkSearchPage() {
     return Array.from(set).sort();
   }, [parks]);
 
-  // Filtered parks
   const filteredParks = useMemo(() => {
     return parks.filter((park) => {
-      // Province filter
       if (provinceFilter !== "all") {
         const prov = extractProvince(park.address);
         if (prov !== provinceFilter) return false;
       }
 
-      // Status filter
       if (statusFilter === "open") {
         return isCurrentlyOpen(park.openTime, park.closeTime, park.isTemporaryClosed);
       }
@@ -112,7 +105,6 @@ export default function ParkSearchPage() {
 
   return (
     <div className="mx-auto max-w-7xl pb-16">
-      {/* Search Header and Filter Bar */}
       <ParkSearchHeader
         keyword={keyword}
         onKeywordChange={setKeyword}
@@ -126,9 +118,7 @@ export default function ParkSearchPage() {
         isFallback={isFallback}
       />
 
-      {/* Main Content Area */}
       {loading ? (
-        // Loading Skeleton Grid
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[1, 2, 3, 4, 5, 6].map((idx) => (
             <div
@@ -146,7 +136,6 @@ export default function ParkSearchPage() {
           ))}
         </div>
       ) : error ? (
-        // Error State
         <div className="my-12 flex flex-col items-center justify-center rounded-3xl border border-rose-200 bg-rose-50/50 p-10 text-center">
           <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-rose-100 text-rose-600">
             <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -168,7 +157,6 @@ export default function ParkSearchPage() {
           </button>
         </div>
       ) : filteredParks.length === 0 ? (
-        // Empty Search Results State
         <div className="my-12 flex flex-col items-center justify-center rounded-3xl border border-dashed border-[#D5E2CE] bg-white/70 p-12 text-center">
           <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#E8F3E5] text-[#5F7F58] text-2xl">
             🏞️
@@ -205,7 +193,6 @@ export default function ParkSearchPage() {
           </button>
         </div>
       ) : (
-        // Park Cards Grid
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredParks.map((park) => (
             <ParkCard
@@ -217,7 +204,6 @@ export default function ParkSearchPage() {
         </div>
       )}
 
-      {/* Detail Modal */}
       <ParkDetailModal
         park={selectedPark}
         onClose={() => setSelectedPark(null)}

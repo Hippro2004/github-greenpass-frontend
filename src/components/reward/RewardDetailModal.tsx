@@ -29,15 +29,12 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 animate-fade-in">
-      {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       />
 
-      {/* Modal Dialog */}
       <div className="relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl border border-[#E3EBDD]">
-        {/* Cover Image */}
         <div className="relative h-64 sm:h-72 w-full shrink-0 bg-[#3F6848]">
           <img
             src={imageUrl}
@@ -50,7 +47,6 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
 
-          {/* Close button */}
           <button
             type="button"
             onClick={onClose}
@@ -62,7 +58,6 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
             </svg>
           </button>
 
-          {/* Badges on image */}
           <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2">
             <span className="flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-md px-3 py-1 text-xs font-semibold text-[#3F6848] shadow-md">
               <span>🎁</span>
@@ -76,7 +71,6 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
             )}
           </div>
 
-          {/* Title on Image */}
           <div className="absolute bottom-4 left-6 right-6 text-white">
             <p className="text-xs font-semibold uppercase tracking-wider text-emerald-300">
               OFFICIAL REWARD • GREENPASS
@@ -87,9 +81,7 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
           </div>
         </div>
 
-        {/* Modal Body */}
         <div className="flex-1 overflow-y-auto p-6 sm:p-8 space-y-6">
-          {/* Details Section */}
           <div>
             <h4 className="text-base font-bold text-[#3F6848] mb-2.5">
               รายละเอียดและเงื่อนไข
@@ -99,7 +91,6 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
             </div>
           </div>
 
-          {/* 3-Step Redemption Guide */}
           <div>
             <h4 className="text-base font-bold text-[#3F6848] mb-3">
               ขั้นตอนการแลกรับของรางวัล
@@ -138,7 +129,6 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
           </div>
         </div>
 
-        {/* Modal Footer */}
         <div className="border-t border-[#E3EBDD] bg-[#FAFDF8] px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <Link
             href="/park"
@@ -168,7 +158,6 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
         </div>
       </div>
 
-      {/* Mobile App Promotion Modal */}
       <AppPromoModal isOpen={showAppPromo} onClose={() => setShowAppPromo(false)} />
     </div>
   );

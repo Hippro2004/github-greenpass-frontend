@@ -8,7 +8,6 @@ interface ParkCardProps {
   onSelect: (park: Park) => void;
 }
 
-// ฟังก์ชันช่วยดึงชื่อจังหวัดจากที่อยู่
 export function extractProvince(address: string): string {
   if (!address) return "ประเทศไทย";
   const match = address.match(/(?:จังหวัด|จ\.)\s*([ก-๙]+)/);
@@ -22,7 +21,6 @@ export function extractProvince(address: string): string {
   return "อุทยานแห่งชาติ";
 }
 
-// ฟังก์ชันตัดเวลาให้กระชับ เช่น "06:00:00" -> "06:00"
 export function formatTime(timeStr?: string | null): string {
   if (!timeStr) return "--:--";
   const parts = timeStr.split(":");
@@ -32,7 +30,6 @@ export function formatTime(timeStr?: string | null): string {
   return timeStr;
 }
 
-// เช็คสถานะเวลาเปิด ณ ขณะนี้
 export function isCurrentlyOpen(openTime?: string, closeTime?: string, isClosed?: boolean): boolean {
   if (isClosed) return false;
   if (!openTime || !closeTime) return true;
@@ -62,7 +59,6 @@ export default function ParkCard({ park, onSelect }: ParkCardProps) {
       onClick={() => onSelect(park)}
       className="group flex flex-col overflow-hidden rounded-2xl border border-[#E3EBDD] bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#6B8E62]/40 hover:shadow-lg hover:shadow-[#6B8E62]/10 cursor-pointer"
     >
-      {/* ภาพปกอุทยาน */}
       <div className="relative h-52 w-full overflow-hidden bg-[#EEF4EB]">
         {park.image ? (
           <img
@@ -71,7 +67,6 @@ export default function ParkCard({ park, onSelect }: ParkCardProps) {
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"
             onError={(e) => {
-              // fallback ภาพธรรมชาติถ้า url เสีย
               (e.target as HTMLImageElement).src =
                 "https://images.unsplash.com/photo-1511497584788-8767611136f6?auto=format&fit=crop&w=800&q=80";
             }}
@@ -84,10 +79,8 @@ export default function ParkCard({ park, onSelect }: ParkCardProps) {
           </div>
         )}
 
-        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
 
-        {/* Badge จังหวัด (มุมบนซ้าย) */}
         <div className="absolute top-3 left-3 flex items-center gap-1.5 rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-xs font-semibold text-[#3F6848] shadow-xs">
           <svg className="h-3.5 w-3.5 text-[#6B8E62]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -96,7 +89,6 @@ export default function ParkCard({ park, onSelect }: ParkCardProps) {
           <span>{province}</span>
         </div>
 
-        {/* Badge สถานะ (มุมบนขวา) */}
         <div className="absolute top-3 right-3">
           {park.isTemporaryClosed ? (
             <span className="inline-flex items-center gap-1 rounded-full bg-rose-500/90 backdrop-blur-md px-2.5 py-1 text-xs font-medium text-white shadow-xs">
@@ -108,14 +100,13 @@ export default function ParkCard({ park, onSelect }: ParkCardProps) {
               เปิดตามฤดูกาล
             </span>
           ) : (
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#3F6848]/85 backdrop-blur-md px-3 py-1 text-xs font-medium text-white shadow-xs">
+            <span className="inline-flex items-center gap-1 rounded-full bg-[#3F6848]/85 backdrop-blur-md px-3 py-1 text-xs font-medium text-white shadow-xs">
               <span className={`h-2 w-2 rounded-full ${openNow ? "bg-emerald-400" : "bg-zinc-300"}`} />
               {openNow ? "เปิดทำการตอนนี้" : "นอกเวลาทำการ"}
             </span>
           )}
         </div>
 
-        {/* ชื่ออุทยานบนภาพสำหรับ mobile/preview */}
         <div className="absolute bottom-3 left-3 right-3 text-white">
           <p className="text-xs font-light text-emerald-100 tracking-wide">NATIONAL PARK</p>
           <h3 className="text-lg font-bold leading-tight line-clamp-1 drop-shadow-sm">
@@ -124,10 +115,8 @@ export default function ParkCard({ park, onSelect }: ParkCardProps) {
         </div>
       </div>
 
-      {/* เนื้อหาการ์ด */}
       <div className="flex flex-1 flex-col justify-between p-5">
         <div>
-          {/* ข้อมูลเวลาเปิด-ปิด และสถานะ */}
           <div className="flex items-center justify-between text-xs text-[#6F756B] mb-3 pb-3 border-b border-[#F0F5ED]">
             <div className="flex items-center gap-1.5">
               <svg className="h-4 w-4 text-[#6B8E62]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -141,12 +130,10 @@ export default function ParkCard({ park, onSelect }: ParkCardProps) {
             </div>
           </div>
 
-          {/* รายละเอียดสรุปย่อ */}
           <p className="text-sm text-[#6F756B] line-clamp-2 leading-relaxed mb-4">
             {park.description || "อุทยานแห่งชาติที่อุดมสมบูรณ์ไปด้วยผืนป่า พรรณไม้ และสัตว์ป่านานาชนิด"}
           </p>
 
-          {/* หมายเหตุด่านตรวจ / ประกาศ (ถ้ามี) */}
           {park.eventNote && (
             <div className="mb-4 flex items-start gap-2 rounded-xl bg-[#F6FAF4] p-2.5 text-xs text-[#5F7F58] border border-[#E8F3E5]">
               <svg className="h-4 w-4 shrink-0 text-[#6B8E62] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -157,7 +144,6 @@ export default function ParkCard({ park, onSelect }: ParkCardProps) {
           )}
         </div>
 
-        {/* ปุ่มด้านล่างการ์ด */}
         <div className="pt-2 flex items-center gap-2">
           <button
             type="button"

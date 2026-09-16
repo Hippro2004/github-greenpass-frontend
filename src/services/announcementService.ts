@@ -1,7 +1,6 @@
 import { Announcement } from "../types/announcement";
 import { API_BASE_URL } from "./api";
 
-// Fallback mock announcements in case backend is unreachable
 const MOCK_ANNOUNCEMENTS: Announcement[] = [
   {
     announcementId: 21,
@@ -41,9 +40,6 @@ const MOCK_ANNOUNCEMENTS: Announcement[] = [
   }
 ];
 
-/**
- * ดึงรายการประกาศทั้งหมด
- */
 export async function getAllAnnouncements(): Promise<{ announcements: Announcement[]; isFallback: boolean }> {
   try {
     const res = await fetch(`${API_BASE_URL}announcement/all-announcement`, {
@@ -55,7 +51,6 @@ export async function getAllAnnouncements(): Promise<{ announcements: Announceme
     }
 
     const data = await res.json();
-    // รับทั้งแบบ Array DTO หรือครอบ .result
     const list: Announcement[] = Array.isArray(data)
       ? data
       : (data as { result?: Announcement[] })?.result || [];
@@ -73,9 +68,6 @@ export async function getAllAnnouncements(): Promise<{ announcements: Announceme
   }
 }
 
-/**
- * ดึงรายละเอียดประกาศรายฉบับ
- */
 export async function getAnnouncementDetails(announcementId: number): Promise<Announcement | null> {
   try {
     const res = await fetch(`${API_BASE_URL}announcement/announcement-details?announcementId=${announcementId}`, {

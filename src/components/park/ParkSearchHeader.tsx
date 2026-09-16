@@ -29,7 +29,6 @@ export default function ParkSearchHeader({
 
   return (
     <section className="mb-8 flex flex-col items-center">
-      {/* Badge หัวข้อ */}
       <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#E8F3E5] px-4 py-1.5 text-xs font-semibold text-[#5F7F58]">
         <span>🌲</span>
         <span>สำรวจอุทยานแห่งชาติ • National Parks of Thailand</span>
@@ -42,7 +41,6 @@ export default function ParkSearchHeader({
         ค้นพบความงดงามของธรรมชาติ ผืนป่า และน้ำตกทั่วประเทศไทย เช็คเวลาเปิดทำการ พิกัดแผนที่ และเตรียมพร้อมสะสมแสตมป์ GreenPass
       </p>
 
-      {/* Offline/Fallback banner if backend is unreachable */}
       {isFallback && (
         <div className="mb-6 flex items-center gap-2 rounded-2xl bg-amber-50 px-4 py-2 text-xs text-amber-800 border border-amber-200">
           <svg className="h-4 w-4 text-amber-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -52,7 +50,6 @@ export default function ParkSearchHeader({
         </div>
       )}
 
-      {/* Search Input Box */}
       <div className="w-full max-w-3xl">
         <div className="relative flex items-center">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4.5 text-[#6B8E62]">
@@ -83,9 +80,7 @@ export default function ParkSearchHeader({
           )}
         </div>
 
-        {/* Filters & Controls */}
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3 pt-1">
-          {/* Status Filter Tabs */}
           <div className="flex flex-wrap items-center gap-1.5">
             <button
               type="button"
@@ -136,7 +131,6 @@ export default function ParkSearchHeader({
             </button>
           </div>
 
-          {/* Province Dropdown & Reset */}
           <div className="flex items-center gap-2">
             <div className="relative">
               <select
@@ -170,7 +164,6 @@ export default function ParkSearchHeader({
           </div>
         </div>
 
-        {/* Results summary bar */}
         <div className="mt-4 flex items-center justify-between px-1 text-xs text-[#8A9488]">
           <span>
             แสดงผลลัพธ์ทั้งสิ้น <strong className="text-[#3F6848] font-bold">{totalResults}</strong> แห่ง

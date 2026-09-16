@@ -14,10 +14,7 @@ export default function RewardPage() {
   const [error, setError] = useState<string | null>(null);
   const [isFallback, setIsFallback] = useState<boolean>(false);
 
-  // Search keyword
   const [keyword, setKeyword] = useState<string>("");
-
-  // Selected reward for modal
   const [selectedReward, setSelectedReward] = useState<Reward | null>(null);
 
   const fetchRewards = () => {
@@ -61,7 +58,6 @@ export default function RewardPage() {
     };
   }, []);
 
-  // Filtered rewards
   const filteredRewards = useMemo(() => {
     const q = keyword.trim().toLowerCase();
     if (!q) return rewards;
@@ -74,7 +70,6 @@ export default function RewardPage() {
 
   return (
     <div className="mx-auto max-w-7xl pb-16">
-      {/* Header and Search */}
       <RewardHeader
         keyword={keyword}
         onKeywordChange={setKeyword}
@@ -83,7 +78,6 @@ export default function RewardPage() {
         isFallback={isFallback}
       />
 
-      {/* Info Callout: How to Earn Rewards */}
       <div className="mb-10 rounded-3xl border border-[#E3EBDD] bg-gradient-to-r from-[#F6FAF4] to-[#FAFDF8] p-6 md:p-8">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="max-w-xl">
@@ -110,9 +104,7 @@ export default function RewardPage() {
         </div>
       </div>
 
-      {/* Main Rewards Grid */}
       {loading ? (
-        // Loading Skeleton Grid
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {[1, 2, 3].map((idx) => (
             <div
@@ -129,7 +121,6 @@ export default function RewardPage() {
           ))}
         </div>
       ) : error ? (
-        // Error State
         <div className="my-12 flex flex-col items-center justify-center rounded-3xl border border-rose-200 bg-rose-50/50 p-10 text-center">
           <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-rose-100 text-rose-600">
             <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -151,7 +142,6 @@ export default function RewardPage() {
           </button>
         </div>
       ) : filteredRewards.length === 0 ? (
-        // Empty State
         <div className="my-12 flex flex-col items-center justify-center rounded-3xl border border-dashed border-[#D5E2CE] bg-white/70 p-12 text-center">
           <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#E8F3E5] text-[#5F7F58] text-2xl">
             🎁
@@ -176,7 +166,6 @@ export default function RewardPage() {
           )}
         </div>
       ) : (
-        // Rewards Grid
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredRewards.map((reward) => (
             <RewardCard
@@ -188,7 +177,6 @@ export default function RewardPage() {
         </div>
       )}
 
-      {/* Detail Modal */}
       <RewardDetailModal
         reward={selectedReward}
         onClose={() => setSelectedReward(null)}

@@ -5,7 +5,6 @@ export default function Footer() {
     <footer className="mt-auto border-t border-[#E3EBDD] bg-[#F6FAF4] text-[#6F756B] pt-14 pb-10">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-[#E3EBDD]">
-          {/* Column 1: Brand & Bio (Spans 2 cols on lg) */}
           <div className="lg:col-span-2 space-y-4">
             <Link href="/" className="inline-flex items-center gap-2.5">
               <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#E8F3E5] text-[#3F6848] shadow-2xs">
@@ -34,7 +33,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Navigation Links */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#3F6848]">
               บริการหลัก
@@ -71,7 +69,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Tourist Guidelines */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#3F6848]">
               สำหรับนักท่องเที่ยว
@@ -92,7 +89,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Hotline & Emergency */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#3F6848]">
               ติดต่อและสายด่วน
@@ -112,7 +108,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom copyright bar */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8A9488]">
           <p>© 2026 GreenPass. สงวนลิขสิทธิ์ทุกประการ</p>
           <div className="flex items-center gap-4">
