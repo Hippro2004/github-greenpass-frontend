@@ -204,7 +204,7 @@ export default function ParkSearchPage() {
         </div>
       )}
 
-      <ParkDetailModal
+          <ParkDetailModal
         park={selectedPark}
         onClose={() => setSelectedPark(null)}
       />
