@@ -78,17 +78,17 @@ export default function RewardPage() {
         isFallback={isFallback}
       />
 
-      <div className="mb-10 rounded-3xl border border-[#E3EBDD] bg-gradient-to-r from-[#F6FAF4] to-[#FAFDF8] p-6 md:p-8">
+      <div className="mb-10 rounded-3xl border border-[#D6EFE2] bg-gradient-to-r from-[#E8F7F0]/80 via-[#F3F7F5] to-white p-6 md:p-8 shadow-xs">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="max-w-xl">
-            <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[#E8F3E5] px-3 py-1 text-xs font-semibold text-[#5F7F58]">
+            <span className="mb-2 inline-flex items-center gap-1.5 rounded-full bg-[#D1FAE5] border border-[#D6EFE2] px-3 py-1 text-xs font-semibold text-[#064E3B]">
               <span>🍃</span>
               <span>ร่วมโครงการ GreenPass</span>
             </span>
-            <h2 className="text-xl md:text-2xl font-bold text-[#3F6848] mb-2">
+            <h2 className="text-xl md:text-2xl font-bold text-[#064E3B] mb-2">
               เที่ยวง่าย สะสมแสตมป์ แลกรับของรางวัล
             </h2>
-            <p className="text-sm text-[#6F756B] leading-relaxed">
+            <p className="text-sm text-[#64748B] leading-relaxed">
               เพียงเดินทางท่องเที่ยวอุทยานแห่งชาติที่ร่วมรายการทั่วประเทศ สแกนเช็คอินสะสมแสตมป์ดิจิทัล และนำมาแสดงต่อเจ้าหน้าที่เพื่อรับของที่ระลึก
             </p>
           </div>
@@ -96,7 +96,7 @@ export default function RewardPage() {
           <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
             <Link
               href="/park"
-              className="flex-1 md:flex-initial rounded-xl bg-[#6B8E62] px-6 py-3 text-center text-xs font-semibold text-white shadow-xs transition-all hover:bg-[#5F7F58]"
+              className="flex-1 md:flex-initial rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] px-6 py-3 text-center text-xs font-semibold text-white shadow-xs transition-all hover:from-[#043327] hover:to-[#0A3D2A]"
             >
               ค้นหาอุทยานเพื่อเริ่มสะสม
             </Link>
@@ -109,13 +109,13 @@ export default function RewardPage() {
           {[1, 2, 3].map((idx) => (
             <div
               key={idx}
-              className="flex flex-col overflow-hidden rounded-2xl border border-[#E3EBDD] bg-white shadow-xs animate-pulse"
+              className="flex flex-col overflow-hidden rounded-2xl border border-[#D6EFE2] bg-white shadow-xs animate-pulse"
             >
-              <div className="h-52 w-full bg-[#EBF2E8]" />
+              <div className="h-52 w-full bg-[#E8F7F0]" />
               <div className="p-5 space-y-3">
-                <div className="h-5 w-3/4 rounded-md bg-[#EBF2E8]" />
-                <div className="h-12 w-full rounded-md bg-[#F2F7F0]" />
-                <div className="h-8 w-full rounded-xl bg-[#EBF2E8]" />
+                <div className="h-5 w-3/4 rounded-md bg-[#E8F7F0]" />
+                <div className="h-12 w-full rounded-md bg-[#E8F7F0]/60" />
+                <div className="h-8 w-full rounded-xl bg-[#E8F7F0]" />
               </div>
             </div>
           ))}
@@ -136,20 +136,20 @@ export default function RewardPage() {
           <button
             type="button"
             onClick={fetchRewards}
-            className="rounded-xl bg-[#6B8E62] px-6 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#5F7F58] transition-all"
+            className="rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] px-6 py-2.5 text-xs font-semibold text-white shadow-sm hover:from-[#043327] hover:to-[#0A3D2A] transition-all cursor-pointer"
           >
             ลองใหม่อีกครั้ง
           </button>
         </div>
       ) : filteredRewards.length === 0 ? (
-        <div className="my-12 flex flex-col items-center justify-center rounded-3xl border border-dashed border-[#D5E2CE] bg-white/70 p-12 text-center">
-          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#E8F3E5] text-[#5F7F58] text-2xl">
+        <div className="my-12 flex flex-col items-center justify-center rounded-3xl border border-dashed border-[#D6EFE2] bg-white/70 p-12 text-center">
+          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#D1FAE5] text-[#064E3B] text-2xl">
             🎁
           </div>
-          <h3 className="text-xl font-bold text-[#3F6848] mb-2">
+          <h3 className="text-xl font-bold text-[#064E3B] mb-2">
             ไม่พบของรางวัลที่ค้นหา
           </h3>
-          <p className="text-sm text-[#6F756B] max-w-md mb-6 leading-relaxed">
+          <p className="text-sm text-[#64748B] max-w-md mb-6 leading-relaxed">
             {keyword
               ? `ไม่พบข้อมูลที่ตรงกับ "${keyword}" ลองค้นหาด้วยคำอื่น`
               : "ยังไม่มีรายการของรางวัลในขณะนี้"}
@@ -159,7 +159,7 @@ export default function RewardPage() {
             <button
               type="button"
               onClick={() => setKeyword("")}
-              className="rounded-xl bg-[#6B8E62] px-6 py-2.5 text-xs font-semibold text-white shadow-xs hover:bg-[#5F7F58] transition-all"
+              className="rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] px-6 py-2.5 text-xs font-semibold text-white shadow-xs hover:from-[#043327] hover:to-[#0A3D2A] transition-all cursor-pointer"
             >
               ล้างการค้นหาและแสดงทั้งหมด
             </button>

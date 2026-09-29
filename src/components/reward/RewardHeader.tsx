@@ -17,15 +17,15 @@ export default function RewardHeader({
 }: RewardHeaderProps) {
   return (
     <section className="mb-8 flex flex-col items-center">
-      <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#E8F3E5] px-4 py-1.5 text-xs font-semibold text-[#5F7F58]">
+      <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#D1FAE5] border border-[#D6EFE2] px-4 py-1.5 text-xs font-semibold text-[#064E3B]">
         <span>🎁</span>
         <span>ของรางวัลและสิทธิพิเศษ • GreenPass Exclusive Rewards</span>
       </div>
 
-      <h1 className="mb-3 text-3xl font-extrabold tracking-tight text-[#3F6848] md:text-5xl text-center">
+      <h1 className="mb-3 text-3xl font-extrabold tracking-tight text-[#064E3B] md:text-5xl text-center">
         ของรางวัลและของที่ระลึก
       </h1>
-      <p className="mb-8 max-w-2xl text-center text-sm md:text-base text-[#6F756B] leading-relaxed">
+      <p className="mb-8 max-w-2xl text-center text-sm md:text-base text-[#64748B] leading-relaxed">
         ออกเดินทางท่องเที่ยวอุทยานแห่งชาติ สะสมแสตมป์ดิจิทัลผ่าน GreenPass เพื่อแลกรับของที่ระลึกสุดเอ็กซ์คลูซีฟและสิทธิประโยชน์มากมาย
       </p>
 
@@ -40,7 +40,7 @@ export default function RewardHeader({
 
       <div className="w-full max-w-2xl">
         <div className="relative flex items-center">
-          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4.5 text-[#6B8E62]">
+          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4.5 text-[#00A86B]">
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
@@ -51,14 +51,14 @@ export default function RewardHeader({
             value={keyword}
             onChange={(e) => onKeywordChange(e.target.value)}
             placeholder="ค้นหาของรางวัล เช่น เข็มกลัด, กระเป๋า, หมวก..."
-            className="w-full rounded-2xl border border-[#D5E2CE] bg-white py-4 pr-12 pl-12 text-sm md:text-base text-[#3F6848] shadow-sm transition-all placeholder:text-[#9DA79B] focus:border-[#6B8E62] focus:bg-white focus:shadow-md focus:shadow-[#6B8E62]/10 focus:outline-none"
+            className="w-full rounded-2xl border border-[#D6EFE2] bg-white py-4 pr-12 pl-12 text-sm md:text-base text-[#0F172A] shadow-sm transition-all placeholder:text-[#94A3B8] focus:border-[#00A86B] focus:bg-white focus:shadow-md focus:shadow-[#00A86B]/10 focus:outline-none"
           />
 
           {keyword && (
             <button
               type="button"
               onClick={() => onKeywordChange("")}
-              className="absolute inset-y-0 right-0 flex items-center pr-4 text-[#8A9488] hover:text-[#3F6848] transition-colors"
+              className="absolute inset-y-0 right-0 flex items-center pr-4 text-[#94A3B8] hover:text-[#064E3B] transition-colors"
               aria-label="ล้างการค้นหา"
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -68,17 +68,17 @@ export default function RewardHeader({
           )}
         </div>
 
-        <div className="mt-4 flex items-center justify-between px-1 text-xs text-[#8A9488]">
+        <div className="mt-4 flex items-center justify-between px-1 text-xs text-[#64748B]">
           <span>
-            พบของรางวัลทั้งหมด <strong className="text-[#3F6848] font-bold">{totalResults}</strong> รายการ
+            พบของรางวัลทั้งหมด <strong className="text-[#064E3B] font-bold">{totalResults}</strong> รายการ
           </span>
           {keyword && (
             <button
               type="button"
               onClick={onReset}
-              className="text-[#B85450] hover:underline"
+              className="text-[#00A86B] hover:text-[#064E3B] hover:underline font-semibold"
             >
-              ล้างการค้นหา
+              ล้างคำค้นหา
             </button>
           )}
         </div>

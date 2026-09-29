@@ -61,9 +61,9 @@ export default function RewardCard({ reward, onSelect }: RewardCardProps) {
   return (
     <div
       onClick={() => onSelect(reward)}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-[#E3EBDD] bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#6B8E62]/40 hover:shadow-lg hover:shadow-[#6B8E62]/10 cursor-pointer"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-[#D6EFE2] bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#00A86B]/50 hover:shadow-lg hover:shadow-[#00A86B]/10 cursor-pointer"
     >
-      <div className="relative h-52 w-full overflow-hidden bg-[#EEF4EB]">
+      <div className="relative h-52 w-full overflow-hidden bg-[#E8F7F0]">
         <img
           src={imageUrl}
           alt={reward.rewardTitle}
@@ -78,7 +78,7 @@ export default function RewardCard({ reward, onSelect }: RewardCardProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/25" />
 
         <div className="absolute top-3 left-3">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-md px-3 py-1 text-xs font-semibold text-[#3F6848] shadow-xs">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-md px-3 py-1 text-xs font-semibold text-[#064E3B] shadow-xs">
             <span>🎁</span>
             <span>ของที่ระลึกทางการ</span>
           </span>
@@ -91,7 +91,7 @@ export default function RewardCard({ reward, onSelect }: RewardCardProps) {
         )}
 
         <div className="absolute bottom-3 left-4 right-4 text-white">
-          <p className="text-xs font-medium text-emerald-200 uppercase tracking-wider">GREENPASS REWARD</p>
+          <p className="text-xs font-medium text-emerald-300 uppercase tracking-wider">GREENPASS REWARD</p>
           <h3 className="text-lg font-bold leading-snug line-clamp-1 drop-shadow-sm">
             {reward.rewardTitle}
           </h3>
@@ -100,12 +100,12 @@ export default function RewardCard({ reward, onSelect }: RewardCardProps) {
 
       <div className="flex flex-1 flex-col justify-between p-5">
         <div>
-          <p className="text-sm text-[#6F756B] line-clamp-2 leading-relaxed mb-4">
+          <p className="text-sm text-[#64748B] line-clamp-2 leading-relaxed mb-4">
             {reward.rewardDetails || "แลกรับของรางวัลและของที่ระลึกสุดพิเศษจากโครงการ GreenPass เมื่อสะสมแสตมป์ครบตามเงื่อนไข"}
           </p>
 
-          <div className="mb-4 flex items-center gap-2 rounded-xl bg-[#F6FAF4] p-2.5 text-xs text-[#5F7F58] border border-[#E8F3E5]">
-            <svg className="h-4 w-4 shrink-0 text-[#6B8E62]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="mb-4 flex items-center gap-2 rounded-xl bg-[#E8F7F0] p-2.5 text-xs text-[#065F46] border border-[#D6EFE2]">
+            <svg className="h-4 w-4 shrink-0 text-[#00A86B]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
@@ -120,7 +120,7 @@ export default function RewardCard({ reward, onSelect }: RewardCardProps) {
               e.stopPropagation();
               onSelect(reward);
             }}
-            className="flex-1 rounded-xl bg-[#E8F3E5] py-2.5 text-center text-xs font-semibold text-[#3F6848] transition-all hover:bg-[#6B8E62] hover:text-white"
+            className="flex-1 rounded-xl bg-[#E8F7F0] py-2.5 text-center text-xs font-semibold text-[#064E3B] transition-all hover:bg-[#064E3B] hover:text-white cursor-pointer"
           >
             ดูเงื่อนไขและวิธีแลกรับ
           </button>

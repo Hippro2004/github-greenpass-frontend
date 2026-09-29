@@ -15,7 +15,6 @@ export default function Navbar() {
     { name: "อุทยานแห่งชาติ", href: "/park" },
     { name: "ข่าวสารและประกาศ", href: "/announcement" },
     { name: "ของรางวัล", href: "/reward" },
-    // { name: "สะสมแสตมป์", href: "/stamp" },
   ];
 
   const isActive = (href: string) => {
@@ -24,34 +23,35 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#E3EBDD] bg-[#FAFDF8]/90 backdrop-blur-md transition-all">
+    <header className="sticky top-0 z-50 border-b border-[#D6EFE2] bg-[#F3F7F5]/90 backdrop-blur-md transition-all">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
         <Link href="/" className="group flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#E8F3E5] text-[#3F6848] transition-transform duration-300 group-hover:scale-105 shadow-2xs">
-            <span className="text-lg">🍃</span>
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#D1FAE5] text-[#064E3B] transition-transform duration-300 group-hover:scale-105 shadow-2xs border border-[#D6EFE2]">
+            <span className="text-xl">🍃</span>
           </div>
           <div className="flex flex-col">
             <span className="text-xl sm:text-2xl font-black tracking-tight leading-none">
-              <span className="text-[#6B8E62]">Green</span>
-              <span className="text-[#3F6848]">Pass.</span>
+              <span className="text-[#00A86B]">Green</span>
+              <span className="text-[#064E3B]">Pass.</span>
             </span>
-            <span className="text-[10px] font-medium tracking-wider text-[#8A9488] uppercase">
+            <span className="text-[10px] font-medium tracking-wider text-[#64748B] uppercase mt-0.5">
               National Parks of Thailand
             </span>
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1.5 rounded-full border border-[#E3EBDD] bg-white/70 px-3 py-1.5 shadow-2xs">
+        <nav className="hidden lg:flex items-center gap-1.5 rounded-full border border-[#D6EFE2] bg-white/80 p-1.5 shadow-2xs">
           {navLinks.map((link) => {
             const active = isActive(link.href);
             return (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${active
-                  ? "bg-[#6B8E62] text-white shadow-2xs"
-                  : "text-[#6F756B] hover:text-[#3F6848] hover:bg-[#F3F8F1]"
-                  }`}
+                className={`rounded-full px-5 py-2 text-xs font-semibold transition-all ${
+                  active
+                    ? "bg-[#064E3B] text-white shadow-xs"
+                    : "text-[#64748B] hover:text-[#064E3B] hover:bg-[#E8F7F0]"
+                }`}
               >
                 {link.name}
               </Link>
@@ -59,24 +59,24 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* <div className="hidden sm:flex items-center gap-3">
+        <div className="hidden sm:flex items-center gap-3">
           <button
             type="button"
             onClick={() => setShowAppPromo(true)}
-            className="flex items-center gap-1.5 rounded-full bg-[#E8F3E5] border border-[#D5E2CE] px-4 py-2 text-xs font-bold text-[#3F6848] shadow-2xs transition-all hover:bg-[#6B8E62] hover:text-white hover:border-[#6B8E62] cursor-pointer"
+            className="flex items-center gap-2 rounded-full bg-[#E8F7F0] border border-[#D6EFE2] px-4 py-2 text-xs font-bold text-[#064E3B] shadow-2xs transition-all hover:bg-[#064E3B] hover:text-white hover:border-[#064E3B] cursor-pointer"
           >
             <span>📱</span>
-            <span>เช็คอินบนแอป</span>
-            <span className="rounded-full bg-[#6B8E62] text-white px-1.5 py-0.2 text-[9px] font-medium group-hover:bg-white group-hover:text-[#3F6848]">
-              App
+            <span>Mobile App</span>
+            <span className="rounded-full bg-[#00A86B] text-white px-1.5 py-0.2 text-[9px] font-bold">
+              เปิดแอป
             </span>
           </button>
-        </div> */}
+        </div>
 
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-[#E3EBDD] bg-white text-[#3F6848] hover:bg-[#F3F8F1] transition-colors"
+          className="lg:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-[#D6EFE2] bg-white text-[#064E3B] hover:bg-[#E8F7F0] transition-colors"
           aria-label="เปิดเมนูนำทาง"
         >
           {mobileMenuOpen ? (
@@ -92,7 +92,7 @@ export default function Navbar() {
       </div>
 
       {mobileMenuOpen && (
-        <div className="lg:hidden border-b border-[#E3EBDD] bg-white px-6 py-5 shadow-lg animate-fade-in">
+        <div className="lg:hidden border-b border-[#D6EFE2] bg-white px-6 py-5 shadow-lg animate-fade-in">
           <div className="flex flex-col gap-2">
             {navLinks.map((link) => {
               const active = isActive(link.href);
@@ -101,28 +101,29 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-all ${active
-                    ? "bg-[#E8F3E5] text-[#3F6848]"
-                    : "text-[#6F756B] hover:bg-[#FAFDF8] hover:text-[#3F6848]"
-                    }`}
+                  className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-all ${
+                    active
+                      ? "bg-[#E8F7F0] text-[#064E3B] font-bold"
+                      : "text-[#64748B] hover:bg-[#F3F7F5] hover:text-[#064E3B]"
+                  }`}
                 >
                   <span>{link.name}</span>
-                  {active && <span className="h-2 w-2 rounded-full bg-[#6B8E62]" />}
+                  {active && <span className="h-2 w-2 rounded-full bg-[#00A86B]" />}
                 </Link>
               );
             })}
 
-            <div className="pt-3 mt-2 border-t border-[#F0F5ED]">
+            <div className="pt-3 mt-2 border-t border-[#D6EFE2]">
               <button
                 type="button"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   setShowAppPromo(true);
                 }}
-                className="flex items-center justify-center gap-2 w-full rounded-xl bg-[#6B8E62] py-3 text-center text-sm font-bold text-white shadow-xs cursor-pointer"
+                className="flex items-center justify-center gap-2 w-full rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] py-3 text-center text-sm font-bold text-white shadow-xs cursor-pointer"
               >
                 <span>📱</span>
-                <span>เช็คอินสะสมแสตมป์บนแอป</span>
+                <span>เช็คอินสะสมแสตมป์บน Mobile App</span>
               </button>
             </div>
           </div>

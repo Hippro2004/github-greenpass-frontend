@@ -43,8 +43,8 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
         onClick={onClose}
       />
 
-      <div className="relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl border border-[#E3EBDD]">
-        <div className="relative h-60 sm:h-68 w-full shrink-0 bg-[#3F6848]">
+      <div className="relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl border border-[#D6EFE2]">
+        <div className="relative h-60 sm:h-68 w-full shrink-0 bg-[#064E3B]">
           <img
             src={imageUrl}
             alt={announcement.announcementTitle}
@@ -59,7 +59,7 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
           <button
             type="button"
             onClick={onClose}
-            className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-md transition-colors hover:bg-black/70"
+            className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-md transition-colors hover:bg-black/70 cursor-pointer"
             aria-label="ปิดหน้าต่าง"
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -73,7 +73,7 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
               {meta.label}
             </span>
 
-            <span className="rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-xs font-medium text-[#3F6848] shadow-md">
+            <span className="rounded-full bg-white/95 backdrop-blur-md px-3 py-1 text-xs font-semibold text-[#064E3B] shadow-md">
               วันที่ {formattedDate}
             </span>
           </div>
@@ -93,29 +93,29 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
         </div>
 
         <div className="flex-1 overflow-y-auto p-6 sm:p-8 space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-[#F6FAF4] p-4 border border-[#E8F3E5]">
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-[#E8F7F0]/60 p-4 border border-[#D6EFE2]">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#E8F3E5] text-[#3F6848]">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#D1FAE5] text-[#064E3B]">
                 📢
               </div>
               <div>
-                <p className="text-xs text-[#8A9488]">หน่วยงานที่ออกประกาศ</p>
-                <p className="text-sm font-bold text-[#3F6848]">
+                <p className="text-xs text-[#64748B]">หน่วยงานที่ออกประกาศ</p>
+                <p className="text-sm font-bold text-[#064E3B]">
                   {announcement.parkName || "กรมอุทยานแห่งชาติ สัตว์ป่า และพันธุ์พืช"}
                 </p>
               </div>
             </div>
 
-            <span className="text-xs font-mono text-[#8A9488]">
+            <span className="text-xs font-mono text-[#64748B]">
               ประกาศเลขที่ #{announcement.announcementId}
             </span>
           </div>
 
           <div>
-            <h4 className="text-base font-bold text-[#3F6848] mb-3">
+            <h4 className="text-base font-bold text-[#064E3B] mb-3">
               เนื้อหาประกาศ
             </h4>
-            <div className="rounded-2xl border border-[#E3EBDD] bg-white p-5 text-sm leading-relaxed text-[#4F5F50] whitespace-pre-line space-y-3">
+            <div className="rounded-2xl border border-[#D6EFE2] bg-white p-5 text-sm leading-relaxed text-[#0F172A] whitespace-pre-line space-y-3 shadow-2xs">
               {announcement.description}
             </div>
           </div>
@@ -130,11 +130,11 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
           </div>
         </div>
 
-        <div className="border-t border-[#E3EBDD] bg-[#FAFDF8] px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="border-t border-[#D6EFE2] bg-[#F3F7F5] px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <button
             type="button"
             onClick={handleCopyLink}
-            className="flex items-center gap-1.5 text-xs text-[#6F756B] hover:text-[#3F6848] transition-colors"
+            className="flex items-center gap-1.5 text-xs text-[#64748B] hover:text-[#064E3B] transition-colors cursor-pointer"
           >
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -145,7 +145,7 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
           <div className="flex items-center gap-2.5 w-full sm:w-auto">
             <Link
               href="/park"
-              className="flex flex-1 sm:flex-initial items-center justify-center gap-2 rounded-xl bg-[#6B8E62] px-5 py-2.5 text-xs font-semibold text-white shadow-xs transition-all hover:bg-[#5F7F58]"
+              className="flex flex-1 sm:flex-initial items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] px-5 py-2.5 text-xs font-semibold text-white shadow-xs transition-all hover:from-[#043327] hover:to-[#0A3D2A]"
             >
               <span>ดูข้อมูลอุทยานแห่งนี้</span>
               <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -156,7 +156,7 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
             <button
               type="button"
               onClick={onClose}
-              className="rounded-xl border border-[#D5E2CE] bg-white px-5 py-2.5 text-xs font-semibold text-[#6F756B] transition-all hover:bg-[#F3F8F1] hover:text-[#3F6848]"
+              className="rounded-xl border border-[#D6EFE2] bg-white px-5 py-2.5 text-xs font-semibold text-[#64748B] transition-all hover:bg-[#E8F7F0] hover:text-[#064E3B] cursor-pointer"
             >
               ปิด
             </button>

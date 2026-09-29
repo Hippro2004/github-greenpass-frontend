@@ -29,15 +29,15 @@ export default function ParkSearchHeader({
 
   return (
     <section className="mb-8 flex flex-col items-center">
-      <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#E8F3E5] px-4 py-1.5 text-xs font-semibold text-[#5F7F58]">
+      <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#D1FAE5] border border-[#D6EFE2] px-4 py-1.5 text-xs font-semibold text-[#064E3B]">
         <span>🌲</span>
         <span>สำรวจอุทยานแห่งชาติ • National Parks of Thailand</span>
       </div>
 
-      <h1 className="mb-3 text-3xl font-extrabold tracking-tight text-[#3F6848] md:text-5xl text-center">
+      <h1 className="mb-3 text-3xl font-extrabold tracking-tight text-[#064E3B] md:text-5xl text-center">
         ค้นหาอุทยานแห่งชาติ
       </h1>
-      <p className="mb-8 max-w-2xl text-center text-sm md:text-base text-[#6F756B] leading-relaxed">
+      <p className="mb-8 max-w-2xl text-center text-sm md:text-base text-[#64748B] leading-relaxed">
         ค้นพบความงดงามของธรรมชาติ ผืนป่า และน้ำตกทั่วประเทศไทย เช็คเวลาเปิดทำการ พิกัดแผนที่ และเตรียมพร้อมสะสมแสตมป์ GreenPass
       </p>
 
@@ -52,7 +52,7 @@ export default function ParkSearchHeader({
 
       <div className="w-full max-w-3xl">
         <div className="relative flex items-center">
-          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4.5 text-[#6B8E62]">
+          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4.5 text-[#00A86B]">
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
@@ -62,15 +62,15 @@ export default function ParkSearchHeader({
             type="text"
             value={keyword}
             onChange={(e) => onKeywordChange(e.target.value)}
-            placeholder="ค้นหาตามชื่ออุทยาน เช่น เขาใหญ่, ดอยอินทนนท์, เอราวัณ หรือชื่อจังหวัด..."
-            className="w-full rounded-2xl border border-[#D5E2CE] bg-white py-4 pr-12 pl-12 text-sm md:text-base text-[#3F6848] shadow-sm transition-all placeholder:text-[#9DA79B] focus:border-[#6B8E62] focus:bg-white focus:shadow-md focus:shadow-[#6B8E62]/10 focus:outline-none"
+            placeholder="ค้นหาชื่ออุทยาน, จังหวัด, หรือคำสำคัญ..."
+            className="w-full rounded-2xl border border-[#D6EFE2] bg-white py-4 pr-12 pl-12 text-sm md:text-base text-[#0F172A] shadow-sm transition-all placeholder:text-[#94A3B8] focus:border-[#00A86B] focus:bg-white focus:shadow-md focus:shadow-[#00A86B]/10 focus:outline-none"
           />
 
           {keyword && (
             <button
               type="button"
               onClick={() => onKeywordChange("")}
-              className="absolute inset-y-0 right-0 flex items-center pr-4 text-[#8A9488] hover:text-[#3F6848] transition-colors"
+              className="absolute inset-y-0 right-0 flex items-center pr-4 text-[#94A3B8] hover:text-[#064E3B] transition-colors"
               aria-label="ล้างการค้นหา"
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -87,8 +87,8 @@ export default function ParkSearchHeader({
               onClick={() => onStatusFilterChange("all")}
               className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
                 statusFilter === "all"
-                  ? "bg-[#6B8E62] text-white shadow-xs"
-                  : "bg-white text-[#6F756B] border border-[#E3EBDD] hover:bg-[#F3F8F1] hover:text-[#3F6848]"
+                  ? "bg-[#064E3B] text-white shadow-xs"
+                  : "bg-white text-[#64748B] border border-[#D6EFE2] hover:bg-[#E8F7F0] hover:text-[#064E3B]"
               }`}
             >
               ทั้งหมด
@@ -97,81 +97,76 @@ export default function ParkSearchHeader({
             <button
               type="button"
               onClick={() => onStatusFilterChange("open")}
-              className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1 rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
                 statusFilter === "open"
-                  ? "bg-[#6B8E62] text-white shadow-xs"
-                  : "bg-white text-[#6F756B] border border-[#E3EBDD] hover:bg-[#F3F8F1] hover:text-[#3F6848]"
+                  ? "bg-[#00A86B] text-white shadow-xs"
+                  : "bg-white text-[#065F46] border border-[#D6EFE2] hover:bg-[#E8F7F0]"
               }`}
             >
-              เปิดทำการตอนนี้
+              <span>🟢</span>
+              <span>เปิดตามปกติ</span>
             </button>
 
             <button
               type="button"
               onClick={() => onStatusFilterChange("seasonal")}
-              className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1 rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
                 statusFilter === "seasonal"
-                  ? "bg-[#6B8E62] text-white shadow-xs"
-                  : "bg-white text-[#6F756B] border border-[#E3EBDD] hover:bg-[#F3F8F1] hover:text-[#3F6848]"
+                  ? "bg-amber-600 text-white shadow-xs"
+                  : "bg-white text-amber-700 border border-amber-200 hover:bg-amber-50"
               }`}
             >
-              ตามฤดูกาล
+              <span>🗓️</span>
+              <span>เปิดตามฤดูกาล</span>
             </button>
 
             <button
               type="button"
               onClick={() => onStatusFilterChange("closed")}
-              className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
+              className={`flex items-center gap-1 rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
                 statusFilter === "closed"
-                  ? "bg-[#6B8E62] text-white shadow-xs"
-                  : "bg-white text-[#6F756B] border border-[#E3EBDD] hover:bg-[#F3F8F1] hover:text-[#3F6848]"
+                  ? "bg-rose-600 text-white shadow-xs"
+                  : "bg-white text-rose-700 border border-rose-200 hover:bg-rose-50"
               }`}
             >
-              ปิดชั่วคราว
+              <span>🔴</span>
+              <span>ปิดบริการชั่วคราว</span>
             </button>
           </div>
 
           <div className="flex items-center gap-2">
-            <div className="relative">
-              <select
-                value={provinceFilter}
-                onChange={(e) => onProvinceFilterChange(e.target.value)}
-                className="appearance-none rounded-full border border-[#E3EBDD] bg-white py-1.5 pr-8 pl-3.5 text-xs font-medium text-[#5F7F58] shadow-2xs hover:border-[#6B8E62] focus:outline-none focus:border-[#6B8E62] cursor-pointer"
-              >
-                <option value="all">ทุกจังหวัด ({availableProvinces.length})</option>
-                {availableProvinces.map((prov) => (
-                  <option key={prov} value={prov}>
-                    {prov}
-                  </option>
-                ))}
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2.5 text-[#6B8E62]">
-                <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-            </div>
-
-            {hasActiveFilters && (
-              <button
-                type="button"
-                onClick={onReset}
-                className="rounded-full px-3 py-1.5 text-xs font-medium text-[#B85450] hover:bg-rose-50 transition-colors"
-              >
-                ล้างตัวกรอง
-              </button>
-            )}
+            <label htmlFor="province-filter" className="text-xs text-[#64748B] whitespace-nowrap">
+              จังหวัด:
+            </label>
+            <select
+              id="province-filter"
+              value={provinceFilter}
+              onChange={(e) => onProvinceFilterChange(e.target.value)}
+              className="rounded-xl border border-[#D6EFE2] bg-white px-3 py-1.5 text-xs font-medium text-[#0F172A] shadow-2xs focus:border-[#00A86B] focus:outline-none cursor-pointer"
+            >
+              <option value="all">ทุกจังหวัด</option>
+              {availableProvinces.map((prov) => (
+                <option key={prov} value={prov}>
+                  {prov}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
 
-        <div className="mt-4 flex items-center justify-between px-1 text-xs text-[#8A9488]">
+        <div className="mt-3 flex items-center justify-between text-xs text-[#64748B] px-1">
           <span>
-            แสดงผลลัพธ์ทั้งสิ้น <strong className="text-[#3F6848] font-bold">{totalResults}</strong> แห่ง
+            พบอุทยานทั้งหมด <strong className="text-[#064E3B]">{totalResults}</strong> แห่ง
           </span>
-          {keyword && (
-            <span>
-              ค้นหาด้วยคำว่า: &quot;<span className="text-[#3F6848] font-semibold">{keyword}</span>&quot;
-            </span>
+
+          {hasActiveFilters && (
+            <button
+              type="button"
+              onClick={onReset}
+              className="text-[#00A86B] hover:text-[#064E3B] hover:underline font-semibold transition-colors"
+            >
+              ล้างตัวกรองทั้งหมด
+            </button>
           )}
         </div>
       </div>

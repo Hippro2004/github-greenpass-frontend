@@ -37,20 +37,20 @@ export function getAnnouncementMeta(announcement: Announcement): {
     return {
       type: "urgent",
       label: "ประกาศด่วน / สำคัญ",
-      badgeClass: "bg-rose-500/90 text-white",
+      badgeClass: "bg-rose-600 text-white",
     };
   }
   if (text.includes("⚠️") || text.includes("ปิด") || text.includes("ปรับปรุง")) {
     return {
       type: "closure",
       label: "แจ้งปิดจุดท่องเที่ยว",
-      badgeClass: "bg-amber-500/90 text-white",
+      badgeClass: "bg-amber-600 text-white",
     };
   }
   return {
     type: "general",
     label: "ข่าวประชาสัมพันธ์",
-    badgeClass: "bg-[#3F6848]/90 text-white",
+    badgeClass: "bg-[#00A86B] text-white",
   };
 }
 
@@ -77,9 +77,9 @@ export default function AnnouncementCard({ announcement, onSelect }: Announcemen
   return (
     <div
       onClick={() => onSelect(announcement)}
-      className="group flex flex-col overflow-hidden rounded-2xl border border-[#E3EBDD] bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#6B8E62]/40 hover:shadow-lg hover:shadow-[#6B8E62]/10 cursor-pointer"
+      className="group flex flex-col overflow-hidden rounded-2xl border border-[#D6EFE2] bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#00A86B]/50 hover:shadow-lg hover:shadow-[#00A86B]/10 cursor-pointer"
     >
-      <div className="relative h-48 w-full overflow-hidden bg-[#EEF4EB]">
+      <div className="relative h-48 w-full overflow-hidden bg-[#E8F7F0]">
         <img
           src={imageUrl}
           alt={announcement.announcementTitle}
@@ -91,7 +91,7 @@ export default function AnnouncementCard({ announcement, onSelect }: Announcemen
           }}
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/25" />
 
         <div className="absolute top-3 left-3">
           <span className={`inline-flex items-center gap-1.5 rounded-full backdrop-blur-md px-3 py-1 text-xs font-semibold shadow-xs ${meta.badgeClass}`}>
@@ -100,7 +100,7 @@ export default function AnnouncementCard({ announcement, onSelect }: Announcemen
           </span>
         </div>
 
-        <div className="absolute top-3 right-3 rounded-full bg-white/90 backdrop-blur-md px-2.5 py-1 text-xs font-medium text-[#3F6848] shadow-xs">
+        <div className="absolute top-3 right-3 rounded-full bg-white/95 backdrop-blur-md px-2.5 py-1 text-xs font-semibold text-[#064E3B] shadow-xs">
           {formattedDate}
         </div>
 
@@ -115,21 +115,21 @@ export default function AnnouncementCard({ announcement, onSelect }: Announcemen
 
       <div className="flex flex-1 flex-col justify-between p-5">
         <div>
-          <h3 className="text-base font-bold text-[#3F6848] line-clamp-2 leading-snug mb-2 group-hover:text-[#5F7F58] transition-colors">
+          <h3 className="text-base font-bold text-[#064E3B] line-clamp-2 leading-snug mb-2 group-hover:text-[#00A86B] transition-colors">
             {announcement.announcementTitle}
           </h3>
 
-          <p className="text-sm text-[#6F756B] line-clamp-3 leading-relaxed mb-4">
+          <p className="text-sm text-[#64748B] line-clamp-3 leading-relaxed mb-4">
             {announcement.description}
           </p>
         </div>
 
-        <div className="pt-2 border-t border-[#F0F5ED] flex items-center justify-between">
-          <span className="text-xs text-[#8A9488]">
+        <div className="pt-2 border-t border-[#E8F7F0] flex items-center justify-between">
+          <span className="text-xs text-[#94A3B8]">
             รหัสประกาศ #{announcement.announcementId}
           </span>
 
-          <span className="flex items-center gap-1 text-xs font-semibold text-[#6B8E62] group-hover:text-[#3F6848] transition-colors">
+          <span className="flex items-center gap-1 text-xs font-semibold text-[#00A86B] group-hover:text-[#064E3B] transition-colors">
             อ่านรายละเอียด
             <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

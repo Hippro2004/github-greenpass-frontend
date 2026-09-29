@@ -59,59 +59,59 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-7xl pb-20">
       <section className="relative overflow-hidden pt-8 pb-16 md:pt-14 md:pb-24 text-center">
-        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[350px] w-[600px] rounded-full bg-[#6B8E62]/10 blur-3xl" />
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[380px] w-[650px] rounded-full bg-[#00A86B]/10 blur-3xl" />
 
         <div className="relative z-10 flex flex-col items-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#E8F3E5] px-4 py-2 text-xs md:text-sm font-semibold text-[#3F6848] shadow-2xs">
-            <span className="h-2 w-2 rounded-full bg-[#6B8E62] animate-pulse" />
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-[#D1FAE5] border border-[#D6EFE2] px-4 py-2 text-xs md:text-sm font-semibold text-[#064E3B] shadow-2xs">
+            <span className="h-2 w-2 rounded-full bg-[#00A86B] animate-pulse" />
             <span>GreenPass • แพลตฟอร์มอุทยานแห่งชาติดิจิทัลแห่งแรกของไทย</span>
           </div>
 
-          <h1 className="mb-6 max-w-4xl text-4xl font-extrabold tracking-tight text-[#3F6848] sm:text-6xl md:text-7xl leading-[1.15]">
+          <h1 className="mb-6 max-w-4xl text-4xl font-extrabold tracking-tight text-[#064E3B] sm:text-6xl md:text-7xl leading-[1.15]">
             Explore the Nature. <br />
-            <span className="text-[#6B8E62]">Preserve the Wonder.</span>
+            <span className="text-[#00A86B]">Preserve the Wonder.</span>
           </h1>
 
-          <p className="mx-auto mb-10 max-w-2xl text-base sm:text-lg leading-relaxed text-[#6F756B]">
+          <p className="mx-auto mb-10 max-w-2xl text-base sm:text-lg leading-relaxed text-[#64748B]">
             ออกเดินทางสำรวจอุทยานแห่งชาติทั่วประเทศไทย เช็คสถานะเวลาเปิด-ปิดแบบเรียลไทม์
             ติดตามประกาศด่วนสภาพอากาศ และสะสมแสตมป์เพื่อแลกของที่ระลึกสุดเอ็กซ์คลูซีฟ
           </p>
 
-          {/* <div className="flex flex-wrap justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none">
             <Link
               href="/park"
-              className="flex items-center justify-center gap-2 rounded-full bg-[#6B8E62] px-8 py-3.5 font-semibold text-white shadow-md shadow-[#6B8E62]/20 transition-all hover:bg-[#5F7F58] hover:-translate-y-0.5 hover:shadow-lg"
+              className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] px-8 py-3.5 font-semibold text-white shadow-md shadow-[#064E3B]/20 transition-all hover:from-[#043327] hover:to-[#0A3D2A] hover:-translate-y-0.5 hover:shadow-lg"
             >
               <span>🌲 ค้นหาอุทยานแห่งชาติ</span>
             </Link>
 
             <Link
               href="/announcement"
-              className="flex items-center justify-center gap-2 rounded-full border border-[#D5E2CE] bg-white px-7 py-3.5 font-semibold text-[#3F6848] shadow-2xs transition-all hover:bg-[#F3F8F1] hover:border-[#6B8E62] hover:-translate-y-0.5"
+              className="flex items-center justify-center gap-2 rounded-full border border-[#D6EFE2] bg-white px-7 py-3.5 font-semibold text-[#064E3B] shadow-2xs transition-all hover:bg-[#E8F7F0] hover:border-[#00A86B] hover:-translate-y-0.5"
             >
               <span>📢 ประกาศและข่าวสาร</span>
             </Link>
 
             <Link
               href="/reward"
-              className="flex items-center justify-center gap-2 rounded-full border border-transparent bg-[#E8F3E5] px-7 py-3.5 font-semibold text-[#5F7F58] transition-all hover:bg-[#DCEBD8] hover:text-[#3F6848] hover:-translate-y-0.5"
+              className="flex items-center justify-center gap-2 rounded-full border border-[#D6EFE2] bg-[#E8F7F0] px-7 py-3.5 font-semibold text-[#065F46] transition-all hover:bg-[#D1FAE5] hover:text-[#064E3B] hover:-translate-y-0.5"
             >
               <span>🎁 ดูของรางวัล</span>
             </Link>
-          </div> */}
+          </div>
 
-          <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-8 max-w-3xl w-full border-t border-[#E3EBDD] pt-8 text-center">
+          <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-8 max-w-3xl w-full border-t border-[#D6EFE2] pt-8 text-center">
             <div>
-              <p className="text-2xl sm:text-3xl font-extrabold text-[#3F6848]">155+</p>
-              <p className="text-xs sm:text-sm text-[#6F756B]">อุทยานแห่งชาติทั่วไทย</p>
+              <p className="text-2xl sm:text-3xl font-extrabold text-[#064E3B]">155+</p>
+              <p className="text-xs sm:text-sm text-[#64748B]">อุทยานแห่งชาติทั่วไทย</p>
             </div>
             <div>
-              <p className="text-2xl sm:text-3xl font-extrabold text-[#3F6848]">100%</p>
-              <p className="text-xs sm:text-sm text-[#6F756B]">ข้อมูลอัปเดตแบบเรียลไทม์</p>
+              <p className="text-2xl sm:text-3xl font-extrabold text-[#064E3B]">100%</p>
+              <p className="text-xs sm:text-sm text-[#64748B]">ข้อมูลอัปเดตแบบเรียลไทม์</p>
             </div>
             <div className="col-span-2 sm:col-span-1">
-              <p className="text-2xl sm:text-3xl font-extrabold text-[#3F6848]">Online</p>
-              <p className="text-xs sm:text-sm text-[#6F756B]">สะสมแสตมป์ดิจิทัล</p>
+              <p className="text-2xl sm:text-3xl font-extrabold text-[#00A86B]">Online</p>
+              <p className="text-xs sm:text-sm text-[#64748B]">สะสมแสตมป์ดิจิทัล</p>
             </div>
           </div>
         </div>
@@ -119,8 +119,8 @@ export default function Home() {
 
       <section className="mb-20">
         <div className="mb-10 text-center">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#6B8E62]">SERVICES & HIGHLIGHTS</span>
-          <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-[#3F6848]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#00A86B]">SERVICES & HIGHLIGHTS</span>
+          <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-[#064E3B]">
             ทุกสิ่งที่คุณต้องการในหนึ่งเดียว
           </h2>
         </div>
@@ -128,27 +128,27 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Link
             href="/park"
-            className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#E3EBDD] bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#6B8E62]/40 hover:shadow-xl hover:shadow-[#6B8E62]/10"
+            className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#D6EFE2] bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#00A86B]/50 hover:shadow-xl hover:shadow-[#00A86B]/10"
           >
             <div>
-              <div className="relative mb-5 h-44 w-full overflow-hidden rounded-2xl bg-[#E8F3E5]">
+              <div className="relative mb-5 h-44 w-full overflow-hidden rounded-2xl bg-[#E8F7F0]">
                 <img
                   src="https://images.unsplash.com/photo-1511497584788-8767611136f6?auto=format&fit=crop&w=800&q=80"
                   alt="ค้นหาอุทยานแห่งชาติ"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute top-3 left-3 rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-xs font-bold text-[#3F6848]">
+                <div className="absolute top-3 left-3 rounded-full bg-white/95 backdrop-blur-md px-3 py-1 text-xs font-bold text-[#064E3B] shadow-2xs">
                   อุทยานแห่งชาติ
                 </div>
               </div>
-              <h3 className="text-lg font-bold text-[#3F6848] mb-2 group-hover:text-[#6B8E62] transition-colors">
+              <h3 className="text-lg font-bold text-[#064E3B] mb-2 group-hover:text-[#00A86B] transition-colors">
                 ค้นหาและวางแผนเที่ยวอุทยาน
               </h3>
-              <p className="text-sm text-[#6F756B] leading-relaxed">
+              <p className="text-sm text-[#64748B] leading-relaxed">
                 เช็คเวลาเปิด-ปิดทำการ พิกัดนำทาง Google Maps ประกาศด่านตรวจ และข้อมูลธรรมชาติอย่างละเอียด
               </p>
             </div>
-            <div className="mt-6 flex items-center gap-1.5 text-xs font-semibold text-[#6B8E62] group-hover:translate-x-1 transition-transform">
+            <div className="mt-6 flex items-center gap-1.5 text-xs font-semibold text-[#00A86B] group-hover:translate-x-1 transition-transform">
               <span>เริ่มค้นหาอุทยาน</span>
               <span>→</span>
             </div>
@@ -156,10 +156,10 @@ export default function Home() {
 
           <Link
             href="/announcement"
-            className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#E3EBDD] bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#6B8E62]/40 hover:shadow-xl hover:shadow-[#6B8E62]/10"
+            className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#D6EFE2] bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#00A86B]/50 hover:shadow-xl hover:shadow-[#00A86B]/10"
           >
             <div>
-              <div className="relative mb-5 h-44 w-full overflow-hidden rounded-2xl bg-[#E8F3E5]">
+              <div className="relative mb-5 h-44 w-full overflow-hidden rounded-2xl bg-[#E8F7F0]">
                 <img
                   src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=800&q=80"
                   alt="ข่าวสารและประกาศ"
@@ -169,14 +169,14 @@ export default function Home() {
                   อัปเดตเรียลไทม์
                 </div>
               </div>
-              <h3 className="text-lg font-bold text-[#3F6848] mb-2 group-hover:text-[#6B8E62] transition-colors">
+              <h3 className="text-lg font-bold text-[#064E3B] mb-2 group-hover:text-[#00A86B] transition-colors">
                 ประกาศเตือนภัยและข่าวสาร
               </h3>
-              <p className="text-sm text-[#6F756B] leading-relaxed">
+              <p className="text-sm text-[#64748B] leading-relaxed">
                 รู้ทันสถานการณ์น้ำป่า หมอกหนา การปิดซ่อมแซมเส้นทางท่องเที่ยว และคำแนะนำจากเจ้าหน้าที่พิทักษ์ป่า
               </p>
             </div>
-            <div className="mt-6 flex items-center gap-1.5 text-xs font-semibold text-[#6B8E62] group-hover:translate-x-1 transition-transform">
+            <div className="mt-6 flex items-center gap-1.5 text-xs font-semibold text-[#00A86B] group-hover:translate-x-1 transition-transform">
               <span>อ่านประกาศล่าสุด</span>
               <span>→</span>
             </div>
@@ -184,10 +184,10 @@ export default function Home() {
 
           <Link
             href="/reward"
-            className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#E3EBDD] bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#6B8E62]/40 hover:shadow-xl hover:shadow-[#6B8E62]/10"
+            className="group flex flex-col justify-between overflow-hidden rounded-3xl border border-[#D6EFE2] bg-white p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#00A86B]/50 hover:shadow-xl hover:shadow-[#00A86B]/10"
           >
             <div>
-              <div className="relative mb-5 h-44 w-full overflow-hidden rounded-2xl bg-[#E8F3E5]">
+              <div className="relative mb-5 h-44 w-full overflow-hidden rounded-2xl bg-[#E8F7F0]">
                 <img
                   src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80"
                   alt="ของรางวัลและของที่ระลึก"
@@ -197,14 +197,14 @@ export default function Home() {
                   ของที่ระลึกพิเศษ
                 </div>
               </div>
-              <h3 className="text-lg font-bold text-[#3F6848] mb-2 group-hover:text-[#6B8E62] transition-colors">
+              <h3 className="text-lg font-bold text-[#064E3B] mb-2 group-hover:text-[#00A86B] transition-colors">
                 สะสมแสตมป์ แลกของรางวัล
               </h3>
-              <p className="text-sm text-[#6F756B] leading-relaxed">
+              <p className="text-sm text-[#64748B] leading-relaxed">
                 เปลี่ยนความทรงจำการเดินทางเป็นของที่ระลึกรุ่นพิเศษ เช่น เข็มกลัดทองเหลือง กระเป๋าผ้า และหมวกเดินป่า
               </p>
             </div>
-            <div className="mt-6 flex items-center gap-1.5 text-xs font-semibold text-[#6B8E62] group-hover:translate-x-1 transition-transform">
+            <div className="mt-6 flex items-center gap-1.5 text-xs font-semibold text-[#00A86B] group-hover:translate-x-1 transition-transform">
               <span>ดูของรางวัลทั้งหมด</span>
               <span>→</span>
             </div>
@@ -215,14 +215,14 @@ export default function Home() {
       <section className="mb-20">
         <div className="mb-8 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
           <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-[#6B8E62]">TOP DESTINATIONS</span>
-            <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-[#3F6848]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#00A86B]">TOP DESTINATIONS</span>
+            <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-[#064E3B]">
               อุทยานแห่งชาติยอดนิยม
             </h2>
           </div>
           <Link
             href="/park"
-            className="text-xs sm:text-sm font-semibold text-[#6B8E62] hover:text-[#3F6848] transition-colors flex items-center gap-1"
+            className="text-xs sm:text-sm font-semibold text-[#00A86B] hover:text-[#064E3B] transition-colors flex items-center gap-1"
           >
             <span>ดูอุทยานทั้งหมด</span>
             <span>→</span>
@@ -234,7 +234,7 @@ export default function Home() {
             <Link
               key={park.id}
               href="/park"
-              className="group relative overflow-hidden rounded-3xl border border-[#E3EBDD] bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              className="group relative overflow-hidden rounded-3xl border border-[#D6EFE2] bg-white shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="relative h-60 w-full overflow-hidden">
                 <img
@@ -243,7 +243,7 @@ export default function Home() {
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                <div className="absolute top-3 left-3 rounded-full bg-white/90 backdrop-blur-md px-3 py-1 text-xs font-bold text-[#3F6848]">
+                <div className="absolute top-3 left-3 rounded-full bg-white/95 backdrop-blur-md px-3 py-1 text-xs font-bold text-[#064E3B]">
                   {park.province}
                 </div>
                 <div className="absolute bottom-4 left-4 right-4 text-white">
@@ -261,10 +261,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mb-20 rounded-3xl border border-[#E3EBDD] bg-[#F6FAF4] p-8 md:p-12">
+      <section className="mb-20 rounded-3xl border border-[#D6EFE2] bg-[#E8F7F0]/40 p-8 md:p-12">
         <div className="mb-10 text-center max-w-xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#6B8E62]">HOW IT WORKS</span>
-          <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-[#3F6848]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#00A86B]">HOW IT WORKS</span>
+          <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-[#064E3B]">
             เริ่มใช้งาน GreenPass ง่าย ๆ ใน 4 ขั้นตอน
           </h2>
         </div>
@@ -273,18 +273,18 @@ export default function Home() {
           {steps.map((step) => (
             <div
               key={step.num}
-              className="flex flex-col rounded-2xl bg-white p-6 border border-[#E8F3E5] shadow-2xs"
+              className="flex flex-col rounded-2xl bg-white p-6 border border-[#D6EFE2] shadow-2xs"
             >
               <div className="flex items-center justify-between mb-4">
                 <span className="text-2xl">{step.icon}</span>
-                <span className="text-xs font-black text-[#6B8E62] bg-[#E8F3E5] px-2.5 py-1 rounded-full font-mono">
+                <span className="text-xs font-black text-[#064E3B] bg-[#D1FAE5] px-2.5 py-1 rounded-full font-mono">
                   {step.num}
                 </span>
               </div>
-              <h3 className="text-base font-bold text-[#3F6848] mb-1.5">
+              <h3 className="text-base font-bold text-[#064E3B] mb-1.5">
                 {step.title}
               </h3>
-              <p className="text-xs text-[#6F756B] leading-relaxed">
+              <p className="text-xs text-[#64748B] leading-relaxed">
                 {step.desc}
               </p>
             </div>
@@ -292,7 +292,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#3F6848] via-[#2F5237] to-[#1E3623] p-10 md:p-16 text-center text-white shadow-xl">
+      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#064E3B] via-[#0F5A3E] to-[#043327] p-10 md:p-16 text-center text-white shadow-xl">
         <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
           <span className="text-3xl mb-3">🍃</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
@@ -304,7 +304,7 @@ export default function Home() {
 
           <Link
             href="/park"
-            className="rounded-full bg-white px-8 py-3.5 text-sm font-bold text-[#3F6848] shadow-lg transition-all hover:bg-emerald-50 hover:scale-105"
+            className="rounded-full bg-white px-8 py-3.5 text-sm font-bold text-[#064E3B] shadow-lg transition-all hover:bg-emerald-50 hover:scale-105"
           >
             ค้นหาอุทยานแห่งชาติทันที →
           </Link>

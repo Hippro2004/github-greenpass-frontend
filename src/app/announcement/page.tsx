@@ -130,7 +130,7 @@ export default function AnnouncementPage() {
                 <span className="rounded-full bg-rose-600 px-2.5 py-0.5 text-xs font-bold text-white uppercase tracking-wider">
                   ประกาศด่วนล่าสุด
                 </span>
-                <span className="text-xs text-[#8A9488]">
+                <span className="text-xs text-[#64748B]">
                   {latestUrgent.parkName} • {formatThaiDate(latestUrgent.postDate)}
                 </span>
               </div>
@@ -149,7 +149,7 @@ export default function AnnouncementPage() {
               e.stopPropagation();
               setSelectedAnnouncement(latestUrgent);
             }}
-            className="shrink-0 rounded-xl bg-rose-600 px-5 py-2.5 text-xs font-semibold text-white shadow-xs hover:bg-rose-700 transition-colors"
+            className="shrink-0 rounded-xl bg-rose-600 px-5 py-2.5 text-xs font-semibold text-white shadow-xs hover:bg-rose-700 transition-colors cursor-pointer"
           >
             อ่านประกาศด่วน
           </button>
@@ -161,14 +161,14 @@ export default function AnnouncementPage() {
           {[1, 2, 3, 4, 5, 6].map((idx) => (
             <div
               key={idx}
-              className="flex flex-col overflow-hidden rounded-2xl border border-[#E3EBDD] bg-white shadow-xs animate-pulse"
+              className="flex flex-col overflow-hidden rounded-2xl border border-[#D6EFE2] bg-white shadow-xs animate-pulse"
             >
-              <div className="h-48 w-full bg-[#EBF2E8]" />
+              <div className="h-48 w-full bg-[#E8F7F0]" />
               <div className="p-5 space-y-3">
-                <div className="h-5 w-3/4 rounded-md bg-[#EBF2E8]" />
-                <div className="h-3.5 w-1/2 rounded-md bg-[#EBF2E8]" />
-                <div className="h-12 w-full rounded-md bg-[#F2F7F0]" />
-                <div className="h-8 w-full rounded-xl bg-[#EBF2E8]" />
+                <div className="h-5 w-3/4 rounded-md bg-[#E8F7F0]" />
+                <div className="h-3.5 w-1/2 rounded-md bg-[#E8F7F0]" />
+                <div className="h-12 w-full rounded-md bg-[#E8F7F0]/60" />
+                <div className="h-8 w-full rounded-xl bg-[#E8F7F0]" />
               </div>
             </div>
           ))}
@@ -189,20 +189,20 @@ export default function AnnouncementPage() {
           <button
             type="button"
             onClick={fetchAnnouncements}
-            className="rounded-xl bg-[#6B8E62] px-6 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#5F7F58] transition-all"
+            className="rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] px-6 py-2.5 text-xs font-semibold text-white shadow-sm hover:from-[#043327] hover:to-[#0A3D2A] transition-all cursor-pointer"
           >
             ลองใหม่อีกครั้ง
           </button>
         </div>
       ) : filteredAnnouncements.length === 0 ? (
-        <div className="my-12 flex flex-col items-center justify-center rounded-3xl border border-dashed border-[#D5E2CE] bg-white/70 p-12 text-center">
-          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#E8F3E5] text-[#5F7F58] text-2xl">
+        <div className="my-12 flex flex-col items-center justify-center rounded-3xl border border-dashed border-[#D6EFE2] bg-white/70 p-12 text-center">
+          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#D1FAE5] text-[#064E3B] text-2xl">
             📰
           </div>
-          <h3 className="text-xl font-bold text-[#3F6848] mb-2">
+          <h3 className="text-xl font-bold text-[#064E3B] mb-2">
             ไม่พบประกาศหรือข่าวสารที่ค้นหา
           </h3>
-          <p className="text-sm text-[#6F756B] max-w-md mb-6 leading-relaxed">
+          <p className="text-sm text-[#64748B] max-w-md mb-6 leading-relaxed">
             {keyword
               ? `ไม่พบข้อมูลที่ตรงกับ "${keyword}" ลองค้นหาด้วยคำอื่น หรือเลือกดูจากทุกประเภท`
               : "ไม่พบข่าวสารที่ตรงตามเงื่อนไขตัวกรองที่คุณเลือก"}
@@ -211,7 +211,7 @@ export default function AnnouncementPage() {
           <button
             type="button"
             onClick={handleResetFilters}
-            className="rounded-xl bg-[#6B8E62] px-6 py-2.5 text-xs font-semibold text-white shadow-xs hover:bg-[#5F7F58] transition-all"
+            className="rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] px-6 py-2.5 text-xs font-semibold text-white shadow-xs hover:from-[#043327] hover:to-[#0A3D2A] transition-all cursor-pointer"
           >
             ล้างการค้นหาและแสดงทั้งหมด
           </button>

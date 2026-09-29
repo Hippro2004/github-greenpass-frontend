@@ -123,14 +123,14 @@ export default function ParkSearchPage() {
           {[1, 2, 3, 4, 5, 6].map((idx) => (
             <div
               key={idx}
-              className="flex flex-col overflow-hidden rounded-2xl border border-[#E3EBDD] bg-white shadow-xs animate-pulse"
+              className="flex flex-col overflow-hidden rounded-2xl border border-[#D6EFE2] bg-white shadow-xs animate-pulse"
             >
-              <div className="h-52 w-full bg-[#EBF2E8]" />
+              <div className="h-52 w-full bg-[#E8F7F0]" />
               <div className="p-5 space-y-3">
-                <div className="h-5 w-3/4 rounded-md bg-[#EBF2E8]" />
-                <div className="h-3.5 w-1/2 rounded-md bg-[#EBF2E8]" />
-                <div className="h-14 w-full rounded-md bg-[#F2F7F0]" />
-                <div className="h-9 w-full rounded-xl bg-[#EBF2E8]" />
+                <div className="h-5 w-3/4 rounded-md bg-[#E8F7F0]" />
+                <div className="h-3.5 w-1/2 rounded-md bg-[#E8F7F0]" />
+                <div className="h-14 w-full rounded-md bg-[#E8F7F0]/60" />
+                <div className="h-9 w-full rounded-xl bg-[#E8F7F0]" />
               </div>
             </div>
           ))}
@@ -151,33 +151,33 @@ export default function ParkSearchPage() {
           <button
             type="button"
             onClick={handleManualRefresh}
-            className="rounded-xl bg-[#6B8E62] px-6 py-2.5 text-xs font-semibold text-white shadow-sm hover:bg-[#5F7F58] transition-all"
+            className="rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] px-6 py-2.5 text-xs font-semibold text-white shadow-sm hover:from-[#043327] hover:to-[#0A3D2A] transition-all cursor-pointer"
           >
             ลองใหม่อีกครั้ง
           </button>
         </div>
       ) : filteredParks.length === 0 ? (
-        <div className="my-12 flex flex-col items-center justify-center rounded-3xl border border-dashed border-[#D5E2CE] bg-white/70 p-12 text-center">
-          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#E8F3E5] text-[#5F7F58] text-2xl">
+        <div className="my-12 flex flex-col items-center justify-center rounded-3xl border border-dashed border-[#D6EFE2] bg-white/70 p-12 text-center">
+          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#D1FAE5] text-[#064E3B] text-2xl">
             🏞️
           </div>
-          <h3 className="text-xl font-bold text-[#3F6848] mb-2">
+          <h3 className="text-xl font-bold text-[#064E3B] mb-2">
             ไม่พบอุทยานแห่งชาติที่ค้นหา
           </h3>
-          <p className="text-sm text-[#6F756B] max-w-md mb-6 leading-relaxed">
+          <p className="text-sm text-[#64748B] max-w-md mb-6 leading-relaxed">
             {keyword
               ? `ไม่พบข้อมูลที่ตรงกับ "${keyword}" ลองค้นหาด้วยคำอื่น หรือเลือกดูจากทุกจังหวัด`
               : "ไม่พบอุทยานที่ตรงตามเงื่อนไขตัวกรองที่คุณเลือก"}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
-            <span className="text-xs text-[#8A9488]">คำค้นหายอดนิยม:</span>
+            <span className="text-xs text-[#64748B]">คำค้นหายอดนิยม:</span>
             {["เขาใหญ่", "ดอยอินทนนท์", "เอราวัณ", "แก่งกระจาน"].map((tag) => (
               <button
                 key={tag}
                 type="button"
                 onClick={() => setKeyword(tag)}
-                className="rounded-full bg-[#F3F8F1] px-3 py-1 text-xs text-[#5F7F58] border border-[#E3EBDD] hover:bg-[#E8F3E5] hover:text-[#3F6848] transition-colors"
+                className="rounded-full bg-[#E8F7F0] px-3 py-1 text-xs text-[#065F46] border border-[#D6EFE2] hover:bg-[#D1FAE5] hover:text-[#064E3B] transition-colors cursor-pointer"
               >
                 {tag}
               </button>
@@ -187,7 +187,7 @@ export default function ParkSearchPage() {
           <button
             type="button"
             onClick={handleResetFilters}
-            className="rounded-xl bg-[#6B8E62] px-6 py-2.5 text-xs font-semibold text-white shadow-xs hover:bg-[#5F7F58] transition-all"
+            className="rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] px-6 py-2.5 text-xs font-semibold text-white shadow-xs hover:from-[#043327] hover:to-[#0A3D2A] transition-all cursor-pointer"
           >
             ล้างการค้นหาและแสดงทั้งหมด
           </button>
@@ -204,7 +204,7 @@ export default function ParkSearchPage() {
         </div>
       )}
 
-          <ParkDetailModal
+      <ParkDetailModal
         park={selectedPark}
         onClose={() => setSelectedPark(null)}
       />

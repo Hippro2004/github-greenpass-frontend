@@ -34,8 +34,8 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
         onClick={onClose}
       />
 
-      <div className="relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl border border-[#E3EBDD]">
-        <div className="relative h-64 sm:h-72 w-full shrink-0 bg-[#3F6848]">
+      <div className="relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl border border-[#D6EFE2]">
+        <div className="relative h-64 sm:h-72 w-full shrink-0 bg-[#064E3B]">
           <img
             src={imageUrl}
             alt={reward.rewardTitle}
@@ -50,7 +50,7 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
           <button
             type="button"
             onClick={onClose}
-            className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-md transition-colors hover:bg-black/70"
+            className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-md transition-colors hover:bg-black/70 cursor-pointer"
             aria-label="ปิดหน้าต่าง"
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -59,7 +59,7 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
           </button>
 
           <div className="absolute top-4 left-4 flex flex-wrap items-center gap-2">
-            <span className="flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-md px-3 py-1 text-xs font-semibold text-[#3F6848] shadow-md">
+            <span className="flex items-center gap-1.5 rounded-full bg-white/95 backdrop-blur-md px-3 py-1 text-xs font-semibold text-[#064E3B] shadow-md">
               <span>🎁</span>
               <span>ของรางวัล GreenPass</span>
             </span>
@@ -83,45 +83,45 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
 
         <div className="flex-1 overflow-y-auto p-6 sm:p-8 space-y-6">
           <div>
-            <h4 className="text-base font-bold text-[#3F6848] mb-2.5">
+            <h4 className="text-base font-bold text-[#064E3B] mb-2.5">
               รายละเอียดและเงื่อนไข
             </h4>
-            <div className="rounded-2xl border border-[#E3EBDD] bg-[#FAFDF8] p-5 text-sm leading-relaxed text-[#4F5F50] whitespace-pre-line space-y-3">
+            <div className="rounded-2xl border border-[#D6EFE2] bg-[#F3F7F5] p-5 text-sm leading-relaxed text-[#0F172A] whitespace-pre-line space-y-3">
               {reward.rewardDetails || "แลกรับของที่ระลึกพิเศษได้เมื่อเดินทางท่องเที่ยวและสะสมแสตมป์อุทยานแห่งชาติ"}
             </div>
           </div>
 
           <div>
-            <h4 className="text-base font-bold text-[#3F6848] mb-3">
+            <h4 className="text-base font-bold text-[#064E3B] mb-3">
               ขั้นตอนการแลกรับของรางวัล
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="rounded-2xl bg-[#F6FAF4] p-4 border border-[#E8F3E5]">
-                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#E8F3E5] text-[#3F6848] font-bold text-xs mb-2">
+              <div className="rounded-2xl bg-[#E8F7F0]/60 p-4 border border-[#D6EFE2]">
+                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#D1FAE5] text-[#064E3B] font-bold text-xs mb-2">
                   1
                 </div>
-                <h5 className="text-xs font-bold text-[#3F6848] mb-1">เที่ยวอุทยาน</h5>
-                <p className="text-xs text-[#6F756B] leading-relaxed">
+                <h5 className="text-xs font-bold text-[#064E3B] mb-1">เที่ยวอุทยาน</h5>
+                <p className="text-xs text-[#64748B] leading-relaxed">
                   ออกเดินทางสำรวจอุทยานแห่งชาติทั่วประเทศไทย
                 </p>
               </div>
 
-              <div className="rounded-2xl bg-[#F6FAF4] p-4 border border-[#E8F3E5]">
-                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#E8F3E5] text-[#3F6848] font-bold text-xs mb-2">
+              <div className="rounded-2xl bg-[#E8F7F0]/60 p-4 border border-[#D6EFE2]">
+                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#D1FAE5] text-[#064E3B] font-bold text-xs mb-2">
                   2
                 </div>
-                <h5 className="text-xs font-bold text-[#3F6848] mb-1">สะสมแสตมป์บนแอป</h5>
-                <p className="text-xs text-[#6F756B] leading-relaxed">
+                <h5 className="text-xs font-bold text-[#064E3B] mb-1">สะสมแสตมป์บนแอป</h5>
+                <p className="text-xs text-[#64748B] leading-relaxed">
                   สแกนเช็คอินผ่าน GreenPass Mobile App บนมือถือ
                 </p>
               </div>
 
-              <div className="rounded-2xl bg-[#F6FAF4] p-4 border border-[#E8F3E5]">
-                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#E8F3E5] text-[#3F6848] font-bold text-xs mb-2">
+              <div className="rounded-2xl bg-[#E8F7F0]/60 p-4 border border-[#D6EFE2]">
+                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-[#D1FAE5] text-[#064E3B] font-bold text-xs mb-2">
                   3
                 </div>
-                <h5 className="text-xs font-bold text-[#3F6848] mb-1">รับของรางวัล</h5>
-                <p className="text-xs text-[#6F756B] leading-relaxed">
+                <h5 className="text-xs font-bold text-[#064E3B] mb-1">รับของรางวัล</h5>
+                <p className="text-xs text-[#64748B] leading-relaxed">
                   แสดงหลักฐานที่ศูนย์บริการนักท่องเที่ยวเพื่อรับของรางวัล
                 </p>
               </div>
@@ -129,10 +129,10 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
           </div>
         </div>
 
-        <div className="border-t border-[#E3EBDD] bg-[#FAFDF8] px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="border-t border-[#D6EFE2] bg-[#F3F7F5] px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <Link
             href="/park"
-            className="flex items-center gap-2 text-xs font-semibold text-[#5F7F58] hover:text-[#3F6848] transition-colors"
+            className="flex items-center gap-2 text-xs font-semibold text-[#00A86B] hover:text-[#064E3B] transition-colors"
           >
             <span>🌲</span>
             <span>ค้นหาอุทยานเพื่อสะสมแสตมป์</span>
@@ -142,7 +142,7 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
             <button
               type="button"
               onClick={() => setShowAppPromo(true)}
-              className="flex flex-1 sm:flex-initial items-center justify-center gap-2 rounded-xl bg-[#6B8E62] px-5 py-2.5 text-xs font-semibold text-white shadow-xs transition-all hover:bg-[#5F7F58] cursor-pointer"
+              className="flex flex-1 sm:flex-initial items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] px-5 py-2.5 text-xs font-semibold text-white shadow-xs transition-all hover:from-[#043327] hover:to-[#0A3D2A] cursor-pointer"
             >
               <span>📱 สะสมแสตมป์บนแอป</span>
             </button>
@@ -150,7 +150,7 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
             <button
               type="button"
               onClick={onClose}
-              className="rounded-xl border border-[#D5E2CE] bg-white px-5 py-2.5 text-xs font-semibold text-[#6F756B] transition-all hover:bg-[#F3F8F1] hover:text-[#3F6848]"
+              className="rounded-xl border border-[#D6EFE2] bg-white px-5 py-2.5 text-xs font-semibold text-[#64748B] transition-all hover:bg-[#E8F7F0] hover:text-[#064E3B] cursor-pointer"
             >
               ปิด
             </button>
