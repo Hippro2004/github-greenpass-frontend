@@ -125,9 +125,9 @@ export default function AnnouncementCard({ announcement, onSelect }: Announcemen
         </div>
 
         <div className="pt-2 border-t border-[#E8F7F0] flex items-center justify-between">
-          <span className="text-xs text-[#94A3B8]">
+          {/* <span className="text-xs text-[#94A3B8]">
             รหัสประกาศ #{announcement.announcementId}
-          </span>
+          </span> */}
 
           <span className="flex items-center gap-1 text-xs font-semibold text-[#00A86B] group-hover:text-[#064E3B] transition-colors">
             อ่านรายละเอียด

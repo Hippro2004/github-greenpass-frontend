@@ -143,7 +143,7 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
           </button>
 
           <div className="flex items-center gap-2.5 w-full sm:w-auto">
-            <Link
+            {/* <Link
               href="/park"
               className="flex flex-1 sm:flex-initial items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] px-5 py-2.5 text-xs font-semibold text-white shadow-xs transition-all hover:from-[#043327] hover:to-[#0A3D2A]"
             >
@@ -151,7 +151,7 @@ export default function AnnouncementDetailModal({ announcement, onClose }: Annou
               <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
-            </Link>
+            </Link> */}
 
             <button
               type="button"

@@ -172,13 +172,13 @@ export default function ParkDetailModal({ park, onClose }: ParkDetailModalProps)
           )}
 
           <div className="flex items-center gap-2.5 w-full sm:w-auto">
-            <button
+            {/* <button
               type="button"
               onClick={() => setShowAppPromo(true)}
               className="flex flex-1 sm:flex-initial items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] px-5 py-2.5 text-xs font-semibold text-white shadow-xs transition-all hover:from-[#043327] hover:to-[#0A3D2A] cursor-pointer"
             >
               <span>📱 สะสมแสตมป์ที่นี่</span>
-            </button>
+            </button> */}
 
             <button
               type="button"

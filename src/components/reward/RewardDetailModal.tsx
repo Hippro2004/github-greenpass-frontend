@@ -130,22 +130,22 @@ export default function RewardDetailModal({ reward, onClose }: RewardDetailModal
         </div>
 
         <div className="border-t border-[#D6EFE2] bg-[#F3F7F5] px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <Link
+          {/* <Link
             href="/park"
             className="flex items-center gap-2 text-xs font-semibold text-[#00A86B] hover:text-[#064E3B] transition-colors"
           >
             <span>🌲</span>
             <span>ค้นหาอุทยานเพื่อสะสมแสตมป์</span>
-          </Link>
+          </Link> */}
 
           <div className="flex items-center gap-2.5 w-full sm:w-auto">
-            <button
+            {/* <button
               type="button"
               onClick={() => setShowAppPromo(true)}
               className="flex flex-1 sm:flex-initial items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] px-5 py-2.5 text-xs font-semibold text-white shadow-xs transition-all hover:from-[#043327] hover:to-[#0A3D2A] cursor-pointer"
             >
               <span>📱 สะสมแสตมป์บนแอป</span>
-            </button>
+            </button> */}
 
             <button
               type="button"
