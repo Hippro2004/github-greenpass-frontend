@@ -24,8 +24,9 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#D6EFE2] bg-[#F3F7F5]/90 backdrop-blur-md transition-all">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
-        <Link href="/" className="group flex items-center gap-2.5">
+      <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
+        {/* Logo */}
+        <Link href="/" className="group flex items-center gap-2.5 z-10">
           <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#D1FAE5] text-[#064E3B] transition-transform duration-300 group-hover:scale-105 shadow-2xs border border-[#D6EFE2]">
             <span className="text-xl">🍃</span>
           </div>
@@ -40,7 +41,8 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-1.5 rounded-full border border-[#D6EFE2] bg-white/80 p-1.5 shadow-2xs">
+        {/* Centered Desktop Navigation */}
+        <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-1.5 rounded-full border border-[#D6EFE2] bg-white/80 p-1.5 shadow-2xs">
           {navLinks.map((link) => {
             const active = isActive(link.href);
             return (
@@ -59,24 +61,14 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="hidden sm:flex items-center gap-3">
-          <button
-            type="button"
-            onClick={() => setShowAppPromo(true)}
-            className="flex items-center gap-2 rounded-full bg-[#E8F7F0] border border-[#D6EFE2] px-4 py-2 text-xs font-bold text-[#064E3B] shadow-2xs transition-all hover:bg-[#064E3B] hover:text-white hover:border-[#064E3B] cursor-pointer"
-          >
-            <span>📱</span>
-            <span>Mobile App</span>
-            <span className="rounded-full bg-[#00A86B] text-white px-1.5 py-0.2 text-[9px] font-bold">
-              เปิดแอป
-            </span>
-          </button>
-        </div>
+        {/* Right side spacer for desktop balance */}
+        <div className="hidden lg:block w-32" />
 
+        {/* Mobile menu button */}
         <button
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="lg:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-[#D6EFE2] bg-white text-[#064E3B] hover:bg-[#E8F7F0] transition-colors"
+          className="lg:hidden flex h-10 w-10 items-center justify-center rounded-xl border border-[#D6EFE2] bg-white text-[#064E3B] hover:bg-[#E8F7F0] transition-colors cursor-pointer"
           aria-label="เปิดเมนูนำทาง"
         >
           {mobileMenuOpen ? (
@@ -112,20 +104,6 @@ export default function Navbar() {
                 </Link>
               );
             })}
-
-            <div className="pt-3 mt-2 border-t border-[#D6EFE2]">
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  setShowAppPromo(true);
-                }}
-                className="flex items-center justify-center gap-2 w-full rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] py-3 text-center text-sm font-bold text-white shadow-xs cursor-pointer"
-              >
-                <span>📱</span>
-                <span>เช็คอินสะสมแสตมป์บน Mobile App</span>
-              </button>
-            </div>
           </div>
         </div>
       )}
