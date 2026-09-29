@@ -1,15 +1,8 @@
 "use client";
 
-import { AnnouncementCategory } from "../../types/announcement";
-
 interface AnnouncementHeaderProps {
   keyword: string;
   onKeywordChange: (val: string) => void;
-  category: AnnouncementCategory;
-  onCategoryChange: (cat: AnnouncementCategory) => void;
-  parkFilter: string;
-  onParkFilterChange: (park: string) => void;
-  availableParks: string[];
   totalResults: number;
   onReset: () => void;
   isFallback?: boolean;
@@ -18,29 +11,22 @@ interface AnnouncementHeaderProps {
 export default function AnnouncementHeader({
   keyword,
   onKeywordChange,
-  category,
-  onCategoryChange,
-  parkFilter,
-  onParkFilterChange,
-  availableParks,
   totalResults,
   onReset,
   isFallback,
 }: AnnouncementHeaderProps) {
-  const hasActiveFilters = Boolean(keyword || category !== "all" || parkFilter !== "all");
-
   return (
     <section className="mb-8 flex flex-col items-center">
       <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#D1FAE5] border border-[#D6EFE2] px-4 py-1.5 text-xs font-semibold text-[#064E3B]">
         <span>📢</span>
-        <span>ข่าวสารและประกาศสำคัญ • Official Parks Announcements</span>
+        <span>ข่าวสารและประกาศ • Official Announcements</span>
       </div>
 
       <h1 className="mb-3 text-3xl font-extrabold tracking-tight text-[#064E3B] md:text-5xl text-center">
         ประกาศและข่าวสารอุทยาน
       </h1>
       <p className="mb-8 max-w-2xl text-center text-sm md:text-base text-[#64748B] leading-relaxed">
-        ติดตามอัปเดตสภาพอากาศ คำเตือนภัยธรรมชาติ การปิด-เปิดจุดท่องเที่ยว และข่าวสารกิจกรรมล่าสุดจากอุทยานแห่งชาติทั่วประเทศ
+        ค้นหาและติดตามข่าวสาร ประกาศสภาพอากาศ และข้อมูลสำคัญจากอุทยานแห่งชาติทั่วประเทศ
       </p>
 
       {isFallback && (
@@ -52,6 +38,7 @@ export default function AnnouncementHeader({
         </div>
       )}
 
+      {/* ช่องกรอกค้นหา */}
       <div className="w-full max-w-3xl">
         <div className="relative flex items-center">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4.5 text-[#00A86B]">
@@ -72,7 +59,7 @@ export default function AnnouncementHeader({
             <button
               type="button"
               onClick={() => onKeywordChange("")}
-              className="absolute inset-y-0 right-0 flex items-center pr-4 text-[#94A3B8] hover:text-[#064E3B] transition-colors"
+              className="absolute inset-y-0 right-0 flex items-center pr-4 text-[#94A3B8] hover:text-[#064E3B] transition-colors cursor-pointer"
               aria-label="ล้างการค้นหา"
             >
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -82,92 +69,18 @@ export default function AnnouncementHeader({
           )}
         </div>
 
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 pt-1">
-          <div className="flex flex-wrap items-center gap-1.5">
-            <button
-              type="button"
-              onClick={() => onCategoryChange("all")}
-              className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
-                category === "all"
-                  ? "bg-[#064E3B] text-white shadow-xs"
-                  : "bg-white text-[#64748B] border border-[#D6EFE2] hover:bg-[#E8F7F0] hover:text-[#064E3B]"
-              }`}
-            >
-              ทั้งหมด
-            </button>
-
-            <button
-              type="button"
-              onClick={() => onCategoryChange("urgent")}
-              className={`flex items-center gap-1 rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
-                category === "urgent"
-                  ? "bg-rose-600 text-white shadow-xs"
-                  : "bg-white text-rose-700 border border-rose-200 hover:bg-rose-50"
-              }`}
-            >
-              <span>🚨</span>
-              <span>ประกาศด่วน</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => onCategoryChange("closure")}
-              className={`flex items-center gap-1 rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
-                category === "closure"
-                  ? "bg-amber-600 text-white shadow-xs"
-                  : "bg-white text-amber-700 border border-amber-200 hover:bg-amber-50"
-              }`}
-            >
-              <span>⚠️</span>
-              <span>แจ้งปิดจุดท่องเที่ยว</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => onCategoryChange("general")}
-              className={`flex items-center gap-1 rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all ${
-                category === "general"
-                  ? "bg-[#00A86B] text-white shadow-xs"
-                  : "bg-white text-[#065F46] border border-[#D6EFE2] hover:bg-[#E8F7F0]"
-              }`}
-            >
-              <span>📰</span>
-              <span>ข่าวประชาสัมพันธ์</span>
-            </button>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <label htmlFor="park-filter" className="text-xs text-[#64748B] whitespace-nowrap">
-              กรองตามอุทยาน:
-            </label>
-            <select
-              id="park-filter"
-              value={parkFilter}
-              onChange={(e) => onParkFilterChange(e.target.value)}
-              className="rounded-xl border border-[#D6EFE2] bg-white px-3 py-1.5 text-xs font-medium text-[#0F172A] shadow-2xs focus:border-[#00A86B] focus:outline-none cursor-pointer"
-            >
-              <option value="all">ทุกอุทยานแห่งชาติ</option>
-              {availableParks.map((park) => (
-                <option key={park} value={park}>
-                  {park}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-
         <div className="mt-3 flex items-center justify-between text-xs text-[#64748B] px-1">
           <span>
             พบทั้งหมด <strong className="text-[#064E3B]">{totalResults}</strong> รายการ
           </span>
 
-          {hasActiveFilters && (
+          {keyword && (
             <button
               type="button"
               onClick={onReset}
-              className="text-[#00A86B] hover:text-[#064E3B] hover:underline font-semibold transition-colors"
+              className="text-[#00A86B] hover:text-[#064E3B] hover:underline font-semibold transition-colors cursor-pointer"
             >
-              ล้างตัวกรองทั้งหมด
+              ล้างการค้นหา
             </button>
           )}
         </div>

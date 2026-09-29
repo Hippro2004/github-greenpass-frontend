@@ -117,7 +117,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mb-20">
+      {/* <section className="mb-20">
         <div className="mb-10 text-center">
           <span className="text-xs font-bold uppercase tracking-wider text-[#00A86B]">SERVICES & HIGHLIGHTS</span>
           <h2 className="mt-1 text-2xl sm:text-3xl font-extrabold text-[#064E3B]">
@@ -210,9 +210,9 @@ export default function Home() {
             </div>
           </Link>
         </div>
-      </section>
+      </section> */}
 
-      <section className="mb-20">
+      {/* <section className="mb-20">
         <div className="mb-8 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
           <div>
             <span className="text-xs font-bold uppercase tracking-wider text-[#00A86B]">TOP DESTINATIONS</span>
@@ -259,7 +259,7 @@ export default function Home() {
             </Link>
           ))}
         </div>
-      </section>
+      </section> */}
 
       <section className="mb-20 rounded-3xl border border-[#D6EFE2] bg-[#E8F7F0]/40 p-8 md:p-12">
         <div className="mb-10 text-center max-w-xl mx-auto">
@@ -292,7 +292,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#064E3B] via-[#0F5A3E] to-[#043327] p-10 md:p-16 text-center text-white shadow-xl">
+      {/* <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#064E3B] via-[#0F5A3E] to-[#043327] p-10 md:p-16 text-center text-white shadow-xl">
         <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center">
           <span className="text-3xl mb-3">🍃</span>
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
@@ -309,7 +309,7 @@ export default function Home() {
             ค้นหาอุทยานแห่งชาติทันที →
           </Link>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

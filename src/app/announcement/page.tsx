@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Announcement, AnnouncementCategory } from "../../types/announcement";
+import { Announcement } from "../../types/announcement";
 import { getAllAnnouncements } from "../../services/announcementService";
-import AnnouncementCard, { getAnnouncementMeta, formatThaiDate } from "../../components/announcement/AnnouncementCard";
+import AnnouncementCard from "../../components/announcement/AnnouncementCard";
 import AnnouncementDetailModal from "../../components/announcement/AnnouncementDetailModal";
 import AnnouncementHeader from "../../components/announcement/AnnouncementHeader";
 
@@ -14,9 +14,6 @@ export default function AnnouncementPage() {
   const [isFallback, setIsFallback] = useState<boolean>(false);
 
   const [keyword, setKeyword] = useState<string>("");
-  const [category, setCategory] = useState<AnnouncementCategory>("all");
-  const [parkFilter, setParkFilter] = useState<string>("all");
-
   const [selectedAnnouncement, setSelectedAnnouncement] = useState<Announcement | null>(null);
 
   const fetchAnnouncements = () => {
@@ -60,101 +57,27 @@ export default function AnnouncementPage() {
     };
   }, []);
 
-  const availableParks = useMemo(() => {
-    const set = new Set<string>();
-    announcements.forEach((a) => {
-      if (a.parkName) set.add(a.parkName);
-    });
-    return Array.from(set).sort();
-  }, [announcements]);
-
   const filteredAnnouncements = useMemo(() => {
     const q = keyword.trim().toLowerCase();
+    if (!q) return announcements;
+
     return announcements.filter((item) => {
-      if (parkFilter !== "all" && item.parkName !== parkFilter) {
-        return false;
-      }
-
-      if (category !== "all") {
-        const meta = getAnnouncementMeta(item);
-        if (meta.type !== category) return false;
-      }
-
-      if (q) {
-        const titleMatch = item.announcementTitle?.toLowerCase().includes(q);
-        const descMatch = item.description?.toLowerCase().includes(q);
-        const parkMatch = item.parkName?.toLowerCase().includes(q);
-        if (!titleMatch && !descMatch && !parkMatch) return false;
-      }
-
-      return true;
+      const titleMatch = item.announcementTitle?.toLowerCase().includes(q);
+      const descMatch = item.description?.toLowerCase().includes(q);
+      const parkMatch = item.parkName?.toLowerCase().includes(q);
+      return titleMatch || descMatch || parkMatch;
     });
-  }, [announcements, keyword, category, parkFilter]);
-
-  const latestUrgent = useMemo(() => {
-    return announcements.find((a) => getAnnouncementMeta(a).type === "urgent");
-  }, [announcements]);
-
-  const handleResetFilters = () => {
-    setKeyword("");
-    setCategory("all");
-    setParkFilter("all");
-  };
+  }, [announcements, keyword]);
 
   return (
     <div className="mx-auto max-w-7xl pb-16">
       <AnnouncementHeader
         keyword={keyword}
         onKeywordChange={setKeyword}
-        category={category}
-        onCategoryChange={setCategory}
-        parkFilter={parkFilter}
-        onParkFilterChange={setParkFilter}
-        availableParks={availableParks}
         totalResults={filteredAnnouncements.length}
-        onReset={handleResetFilters}
+        onReset={() => setKeyword("")}
         isFallback={isFallback}
       />
-
-      {!loading && !error && latestUrgent && category === "all" && !keyword && (
-        <div
-          onClick={() => setSelectedAnnouncement(latestUrgent)}
-          className="mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 rounded-3xl border border-rose-200 bg-gradient-to-r from-rose-50 via-rose-50/70 to-amber-50/50 p-6 shadow-sm cursor-pointer transition-all hover:shadow-md hover:border-rose-300"
-        >
-          <div className="flex items-start gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-rose-500 text-white text-xl shadow-xs animate-bounce">
-              🚨
-            </div>
-            <div>
-              <div className="flex flex-wrap items-center gap-2 mb-1">
-                <span className="rounded-full bg-rose-600 px-2.5 py-0.5 text-xs font-bold text-white uppercase tracking-wider">
-                  ประกาศด่วนล่าสุด
-                </span>
-                <span className="text-xs text-[#64748B]">
-                  {latestUrgent.parkName} • {formatThaiDate(latestUrgent.postDate)}
-                </span>
-              </div>
-              <h3 className="text-base font-bold text-rose-950 line-clamp-1">
-                {latestUrgent.announcementTitle}
-              </h3>
-              <p className="text-xs sm:text-sm text-rose-800/90 line-clamp-1 mt-0.5">
-                {latestUrgent.description}
-              </p>
-            </div>
-          </div>
-
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              setSelectedAnnouncement(latestUrgent);
-            }}
-            className="shrink-0 rounded-xl bg-rose-600 px-5 py-2.5 text-xs font-semibold text-white shadow-xs hover:bg-rose-700 transition-colors cursor-pointer"
-          >
-            อ่านประกาศด่วน
-          </button>
-        </div>
-      )}
 
       {loading ? (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -204,17 +127,19 @@ export default function AnnouncementPage() {
           </h3>
           <p className="text-sm text-[#64748B] max-w-md mb-6 leading-relaxed">
             {keyword
-              ? `ไม่พบข้อมูลที่ตรงกับ "${keyword}" ลองค้นหาด้วยคำอื่น หรือเลือกดูจากทุกประเภท`
-              : "ไม่พบข่าวสารที่ตรงตามเงื่อนไขตัวกรองที่คุณเลือก"}
+              ? `ไม่พบข้อมูลที่ตรงกับ "${keyword}" ลองค้นหาด้วยคำอื่น`
+              : "ยังไม่มีข้อมูลประกาศในขณะนี้"}
           </p>
 
-          <button
-            type="button"
-            onClick={handleResetFilters}
-            className="rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] px-6 py-2.5 text-xs font-semibold text-white shadow-xs hover:from-[#043327] hover:to-[#0A3D2A] transition-all cursor-pointer"
-          >
-            ล้างการค้นหาและแสดงทั้งหมด
-          </button>
+          {keyword && (
+            <button
+              type="button"
+              onClick={() => setKeyword("")}
+              className="rounded-xl bg-gradient-to-r from-[#064E3B] to-[#0F5A3E] px-6 py-2.5 text-xs font-semibold text-white shadow-xs hover:from-[#043327] hover:to-[#0A3D2A] transition-all cursor-pointer"
+            >
+              ล้างการค้นหาและแสดงทั้งหมด
+            </button>
+          )}
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
