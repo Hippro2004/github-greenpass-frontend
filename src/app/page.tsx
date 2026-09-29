@@ -77,7 +77,7 @@ export default function Home() {
             ติดตามประกาศด่วนสภาพอากาศ และสะสมแสตมป์เพื่อแลกของที่ระลึกสุดเอ็กซ์คลูซีฟ
           </p>
 
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none">
+          {/* <div className="flex flex-wrap justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none">
             <Link
               href="/park"
               className="flex items-center justify-center gap-2 rounded-full bg-[#6B8E62] px-8 py-3.5 font-semibold text-white shadow-md shadow-[#6B8E62]/20 transition-all hover:bg-[#5F7F58] hover:-translate-y-0.5 hover:shadow-lg"
@@ -98,7 +98,7 @@ export default function Home() {
             >
               <span>🎁 ดูของรางวัล</span>
             </Link>
-          </div>
+          </div> */}
 
           <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-8 max-w-3xl w-full border-t border-[#E3EBDD] pt-8 text-center">
             <div>

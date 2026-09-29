@@ -2,6 +2,7 @@
 "use client";
 
 import { Reward } from "../../types/reward";
+import { resolveImageUrl } from "../../lib/imageHelper";
 
 interface RewardCardProps {
   reward: Reward;
@@ -27,8 +28,9 @@ export function formatRewardDate(dateStr?: string): string {
 }
 
 export function resolveRewardImage(imageUrl?: string, title: string = "", id: number = 0): string {
-  if (imageUrl && (imageUrl.startsWith("http://") || imageUrl.startsWith("https://") || imageUrl.startsWith("data:image"))) {
-    return imageUrl;
+  const resolved = resolveImageUrl(imageUrl, "rewards");
+  if (resolved) {
+    return resolved;
   }
   const lower = title.toLowerCase();
   if (lower.includes("เข็มกลัด") || lower.includes("pin")) {

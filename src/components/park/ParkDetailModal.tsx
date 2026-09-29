@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { Park } from "../../types/park";
+import { resolveImageUrl } from "../../lib/imageHelper";
 import { extractProvince, formatTime, isCurrentlyOpen } from "./ParkCard";
 import AppPromoModal from "../common/AppPromoModal";
 
@@ -36,7 +37,7 @@ export default function ParkDetailModal({ park, onClose }: ParkDetailModalProps)
       <div className="relative z-10 flex max-h-[90vh] w-full max-w-2xl flex-col overflow-hidden rounded-3xl bg-white shadow-2xl border border-[#E3EBDD]">
         <div className="relative h-64 sm:h-72 w-full shrink-0 bg-[#3F6848]">
           <img
-            src={park.image || "https://images.unsplash.com/photo-1511497584788-8767611136f6?auto=format&fit=crop&w=1200&q=80"}
+            src={resolveImageUrl(park.image, "parks") || park.image || "https://images.unsplash.com/photo-1511497584788-8767611136f6?auto=format&fit=crop&w=1200&q=80"}
             alt={park.name}
             className="h-full w-full object-cover"
             onError={(e) => {

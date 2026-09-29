@@ -15,7 +15,7 @@ export default function Navbar() {
     { name: "อุทยานแห่งชาติ", href: "/park" },
     { name: "ข่าวสารและประกาศ", href: "/announcement" },
     { name: "ของรางวัล", href: "/reward" },
-    { name: "สะสมแสตมป์", href: "/stamp" },
+    // { name: "สะสมแสตมป์", href: "/stamp" },
   ];
 
   const isActive = (href: string) => {
@@ -48,11 +48,10 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${
-                  active
-                    ? "bg-[#6B8E62] text-white shadow-2xs"
-                    : "text-[#6F756B] hover:text-[#3F6848] hover:bg-[#F3F8F1]"
-                }`}
+                className={`rounded-full px-4 py-1.5 text-xs font-semibold transition-all ${active
+                  ? "bg-[#6B8E62] text-white shadow-2xs"
+                  : "text-[#6F756B] hover:text-[#3F6848] hover:bg-[#F3F8F1]"
+                  }`}
               >
                 {link.name}
               </Link>
@@ -60,7 +59,7 @@ export default function Navbar() {
           })}
         </nav>
 
-        <div className="hidden sm:flex items-center gap-3">
+        {/* <div className="hidden sm:flex items-center gap-3">
           <button
             type="button"
             onClick={() => setShowAppPromo(true)}
@@ -72,7 +71,7 @@ export default function Navbar() {
               App
             </span>
           </button>
-        </div>
+        </div> */}
 
         <button
           type="button"
@@ -102,11 +101,10 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-all ${
-                    active
-                      ? "bg-[#E8F3E5] text-[#3F6848]"
-                      : "text-[#6F756B] hover:bg-[#FAFDF8] hover:text-[#3F6848]"
-                  }`}
+                  className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-all ${active
+                    ? "bg-[#E8F3E5] text-[#3F6848]"
+                    : "text-[#6F756B] hover:bg-[#FAFDF8] hover:text-[#3F6848]"
+                    }`}
                 >
                   <span>{link.name}</span>
                   {active && <span className="h-2 w-2 rounded-full bg-[#6B8E62]" />}

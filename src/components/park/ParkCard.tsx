@@ -2,6 +2,7 @@
 "use client";
 
 import { Park } from "../../types/park";
+import { resolveImageUrl } from "../../lib/imageHelper";
 
 interface ParkCardProps {
   park: Park;
@@ -62,7 +63,7 @@ export default function ParkCard({ park, onSelect }: ParkCardProps) {
       <div className="relative h-52 w-full overflow-hidden bg-[#EEF4EB]">
         {park.image ? (
           <img
-            src={park.image}
+            src={resolveImageUrl(park.image, "parks") || park.image}
             alt={park.name}
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             loading="lazy"

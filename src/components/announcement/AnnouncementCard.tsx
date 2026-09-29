@@ -2,6 +2,7 @@
 "use client";
 
 import { Announcement } from "../../types/announcement";
+import { resolveImageUrl } from "../../lib/imageHelper";
 
 interface AnnouncementCardProps {
   announcement: Announcement;
@@ -54,8 +55,9 @@ export function getAnnouncementMeta(announcement: Announcement): {
 }
 
 export function resolveAnnouncementImage(imageUrl?: string, id: number = 0): string {
-  if (imageUrl && (imageUrl.startsWith("http://") || imageUrl.startsWith("https://"))) {
-    return imageUrl;
+  const resolved = resolveImageUrl(imageUrl, "announcements");
+  if (resolved) {
+    return resolved;
   }
   const fallbackImages = [
     "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80",
