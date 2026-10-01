@@ -102,7 +102,7 @@ export default function Home() {
 
           <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-8 max-w-3xl w-full border-t border-[#D6EFE2] pt-8 text-center">
             <div>
-              <p className="text-2xl sm:text-3xl font-extrabold text-[#064E3B]">155+</p>
+              <p className="text-2xl sm:text-3xl font-extrabold text-[#064E3B]">156+</p>
               <p className="text-xs sm:text-sm text-[#64748B]">อุทยานแห่งชาติทั่วไทย</p>
             </div>
             <div>
