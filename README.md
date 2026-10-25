@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GreenPass Web
 
-## Getting Started
+เว็บไซต์ GreenPass สำหรับค้นหาอุทยานแห่งชาติ อ่านประกาศ และดูข้อมูลของรางวัล พัฒนาด้วย Next.js App Router, React และ TypeScript
 
-First, run the development server:
+## เริ่มต้นใช้งานอย่างรวดเร็ว
+
+ต้องติดตั้ง Node.js เวอร์ชัน 20.9 ขึ้นไปก่อน จากนั้นเปิด Terminal ที่โฟลเดอร์โปรเจกต์และรัน:
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+เปิด [http://localhost:3000](http://localhost:3000) ในเบราว์เซอร์ หากต้องการตั้งค่า API หรือดูขั้นตอนติดตั้งและแก้ปัญหาเพิ่มเติม โปรดอ่าน [คู่มือการติดตั้ง](docs/installation.md)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## คำสั่งที่ใช้ได้
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| คำสั่ง | รายละเอียด |
+| --- | --- |
+| `npm run dev` | เริ่มเซิร์ฟเวอร์สำหรับพัฒนา |
+| `npm run lint` | ตรวจสอบโค้ดด้วย ESLint |
+| `npm run build` | สร้าง build สำหรับใช้งานจริง |
+| `npm run start` | เปิด build ที่สร้างไว้แล้ว |
 
-## Learn More
+## หน้าเว็บหลัก
 
-To learn more about Next.js, take a look at the following resources:
+- `/` หน้าแรก
+- `/park` ค้นหาอุทยาน
+- `/announcement` ข่าวและประกาศ
+- `/reward` ของรางวัล
+- `/stamp` ข้อมูลการสะสมแสตมป์ผ่านแอปมือถือ
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+การเช็คอินและสะสมแสตมป์ต้องใช้ GreenPass Mobile App ไม่ใช่ฟังก์ชันบนเว็บไซต์นี้
